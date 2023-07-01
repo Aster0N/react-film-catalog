@@ -1,6 +1,22 @@
+:root {
+	--red: #D4183A;
+	--dark: #282224;
+	--text-light: #F6F6F6;
+	--text-dark: #1E1E1E;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'inter-regular', 'sans-serif';
+}
+
+._wrapper {
+	width: 75vw;
+	margin: 0 auto;
+}
+
+._page {
+	background-color: #FFFFF8;
 }

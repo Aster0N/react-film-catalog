@@ -1,10 +1,15 @@
+import Navbar from '@/components/UI/navbar/Navbar'
 import '@/styles/App.css'
+import { BrowserRouter } from 'react-router-dom'
+import AppRouter from './components/appRouter/AppRouter'
 
 function App() {
 	return (
 		<>
-			<h1>React + Vite</h1>
-			<p>React Film Catalog</p>
+			<BrowserRouter>
+				<Navbar />
+				<AppRouter />
+			</BrowserRouter>
 		</>
 	)
 }

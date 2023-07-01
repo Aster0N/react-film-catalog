@@ -1,0 +1,19 @@
+.navbar {
+	width: 100%;
+	height: 80px;
+	background-color: #f3f3f3;
+}
+
+.navbarContent {
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	border: 2px solid var(--red);
+}
