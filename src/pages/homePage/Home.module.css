@@ -22,4 +22,20 @@
 
 .SmallTextBlockWithMargin {
 	margin: 0 0 0 256px;
+	position: relative;
+}
+
+.SmallTextBlockWithMargin::before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 144px;
+	height: 1px;
+	background-color: var(--red);
+	top: 30px;
+	left: -195px;
+}
+
+.buttonInTextBlock {
+	margin: 20px 0 0 0;
 }
