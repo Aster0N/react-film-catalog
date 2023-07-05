@@ -1,9 +1,9 @@
-.mainHeader {
+.mainTitle {
 	text-align: center;
 	margin: 20px 0 80px 0;
 }
 
-.mainHeader span {
+.mainTitle span {
 	font-size: 7.5vw;
 	font-family: 'unifraktur';
 	margin: 0 1.5vw 0 0;
@@ -11,7 +11,7 @@
 	letter-spacing: -5px;
 }
 
-.mainHeader span::first-letter {
+.mainTitle span::first-letter {
 	color: var(--red);
 }
 
@@ -50,11 +50,11 @@
 }
 
 .benefitsBlock {
-	margin: 50px 0 0 0;
+	margin: 100px 0 0 0;
 }
 
 .benefitsContent {
-	margin: 30px 0 0 0;
+	margin: 50px 0 0 0;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -82,7 +82,7 @@
 	left: 0;
 }
 
-.benefitsContent .benefit {
+.benefit {
 	flex-basis: 33.333333%;
-	padding: 0 30px 20px 0;
+	padding: 0 30px 40px 0;
 }

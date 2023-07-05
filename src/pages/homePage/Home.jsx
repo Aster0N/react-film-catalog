@@ -5,10 +5,33 @@ import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 
 const Home = () => {
+	const benefits = [
+		{
+			title: 'Convenience',
+			content: 'With RFC, you can watch your favorite movies and TV shows from the comfort of your own home, without having to leave the house.',
+		},
+		{
+			title: 'Affordability',
+			content: 'RFC offers affordable subscription plans that allow you to access a vast collection of movies and TV shows without breaking the bank.',
+		},
+		{
+			title: 'Accessibility',
+			content: 'RFC is easily accessible from any device with an internet connection, making it easy to watch your favorite movies and TV shows on the go.',
+		},
+		{
+			title: 'Quality',
+			content: 'RFC offers high-quality streaming, so you can enjoy your favorite movies and TV shows in crystal clear resolution.',
+		},
+		{
+			title: 'Variety',
+			content: 'RFC offers a wide range of movies and TV shows, catering to the diverse tastes of the audience. You can find everything from the latest blockbusters to classic films and TV show.',
+		},
+	]
+
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<div className={classes.mainHeader}>
+				<div className={classes.mainTitle}>
 					<span>React </span>
 					<span>Film </span>
 					<span>Catalog</span>
@@ -41,26 +64,15 @@ const Home = () => {
 				<div className={classes.benefitsBlock}>
 					<AccentTitle >Benefits</AccentTitle>
 					<div className={classes.benefitsContent}>
-						<SmallTextBlock className={classes.benefit}>
-							<span className={classes.benefitTitle}>Convenience</span>
-							With RFC, you can watch your favorite movies and TV shows from the comfort of your own home, without having to leave the house.
-						</SmallTextBlock>
-						<SmallTextBlock className={classes.benefit}>
-							<span className={classes.benefitTitle}>Affordability</span>
-							RFC offers affordable subscription plans that allow you to access a vast collection of movies and TV shows without breaking the bank.
-						</SmallTextBlock>
-						<SmallTextBlock className={classes.benefit}>
-							<span className={classes.benefitTitle}>Accessibility</span>
-							RFC is easily accessible from any device with an internet connection, making it easy to watch your favorite movies and TV shows on the go.
-						</SmallTextBlock>
-						<SmallTextBlock className={classes.benefit}>
-							<span className={classes.benefitTitle}>Quality</span>
-							RFC offers high-quality streaming, so you can enjoy your favorite movies and TV shows in crystal clear resolution.
-						</SmallTextBlock>
-						<SmallTextBlock className={classes.benefit}>
-							<span className={classes.benefitTitle}>Variety</span>
-							RFC offers a wide range of movies and TV shows, catering to the diverse tastes of the audience. You can find everything from the latest blockbusters to classic films and TV show.
-						</SmallTextBlock>
+						{benefits.map(benefit =>
+							<SmallTextBlock
+								className={classes.benefit}
+								key={benefit.content}
+							>
+								<span className={classes.benefitTitle}>{benefit.title}</span>
+								{benefit.content}
+							</SmallTextBlock>
+						)}
 					</div>
 				</div>
 			</div>
