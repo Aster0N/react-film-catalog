@@ -75,6 +75,7 @@ const Home = () => {
 						)}
 					</div>
 				</div>
+				<div className={classes.filmIllustration}></div>
 			</div>
 		</div>
 	)

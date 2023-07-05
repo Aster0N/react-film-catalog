@@ -86,3 +86,11 @@
 	flex-basis: 33.333333%;
 	padding: 0 30px 40px 0;
 }
+
+.filmIllustration {
+	margin: 50px 0 0 0;
+	height: 798px;
+	width: 100%;
+	background: center center no-repeat url("../../assets/img/film-illustration.svg");
+	object-fit: contain;
+}

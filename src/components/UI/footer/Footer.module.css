@@ -1,0 +1,10 @@
+.footer {
+	background-color: #959595;
+	padding: 50px;
+	text-align: center;
+	min-height: 150px;
+}
+
+.footerInfo {
+	margin: 20px 0 0 0;
+}
