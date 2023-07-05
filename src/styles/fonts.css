@@ -1,3 +1,10 @@
+/* UnifrakturCook */
+@font-face {
+	font-family: 'unifraktur';
+	src: url('@/assets/fonts/UnifrakturCook/UnifrakturCook-Bold.ttf') format('truetype');
+}
+
+
 /* Crimson Pro */
 @font-face {
 	font-family: 'crimson-regular';

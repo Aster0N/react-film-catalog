@@ -5,9 +5,10 @@
 
 .mainHeader span {
 	font-size: 7.5vw;
-	font-family: 'crimson-black';
-	margin: 0 2vw 0 0;
+	font-family: 'unifraktur';
+	margin: 0 1.5vw 0 0;
 	display: inline-block;
+	letter-spacing: -5px;
 }
 
 .mainHeader span::first-letter {
