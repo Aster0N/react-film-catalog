@@ -21,6 +21,10 @@
 	align-items: flex-start;
 }
 
+.textBlock h2 {
+	min-width: 150px;
+}
+
 .SmallTextBlockWithMargin {
 	margin: 0 0 0 256px;
 	position: relative;
