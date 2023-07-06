@@ -1,4 +1,4 @@
-import logo from "@/assets/img/logo.svg"
+import logo from "@/assets/img/dark-logo.svg"
 import { Link } from 'react-router-dom'
 import classes from './Navbar.module.css'
 

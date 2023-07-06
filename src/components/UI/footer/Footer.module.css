@@ -1,5 +1,5 @@
 .footer {
-	background-color: #aeaeae;
+	background-color: var(--dark-blue);
 	padding: 50px;
 	text-align: center;
 	min-height: 150px;

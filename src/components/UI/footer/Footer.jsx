@@ -1,5 +1,5 @@
 import githubIcon from '@/assets/img/github.png'
-import logo from '@/assets/img/logo.svg'
+import logo from '@/assets/img/light-logo.svg'
 import classes from './Footer.module.css'
 
 const Footer = () => {
