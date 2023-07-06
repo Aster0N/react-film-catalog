@@ -1,0 +1,22 @@
+.backLink {
+	margin: 20px 0 0 0;
+	padding: 15px 0;
+	border-top: 0.3px solid transparent;
+	border-bottom: 0.3px solid transparent;
+	transition: all .3s ease-out;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.backLink:hover {
+	border-top: 0.3px solid var(--dark);
+	border-bottom: 0.3px solid var(--dark);
+}
+
+.backLinkCaption {
+	font-family: 'crimson-light';
+	font-size: 24px;
+}

@@ -28,6 +28,8 @@ html {
 main {
 	min-height: 100%;
 	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 ._wrapper {
@@ -37,4 +39,5 @@ main {
 
 ._page {
 	background-color: #FFFFF8;
+	flex-grow: 1;
 }
