@@ -1,18 +1,25 @@
 import MyButton from '@/components/UI/button/MyButton.jsx'
+import MyInput from '@/components/UI/input/MyInput'
 import classes from './LoginForm.module.css'
 
 const LoginForm = () => {
 	return (
 		<div className={classes.loginForm}>
-			<label htmlFor="email">
-				Email<br />
-				<input placeholder='Your email' id="email" type="email" />
-			</label>
-			<label htmlFor="password">
-				Password<br />
-				<input placeholder='Your password' id="password" type="password" />
-			</label>
-			<MyButton>login</MyButton>
+			<MyInput
+				labelFor={"email"}
+				labelText={"Email"}
+				inputPlaceholder='Your email'
+				inputId="email"
+				inputType="email"
+			/>
+			<MyInput
+				labelFor={"password"}
+				labelText={"Password"}
+				inputPlaceholder='Your password'
+				inputId="password"
+				inputType="password"
+			/>
+			<MyButton className={classes.loginBtn}>login</MyButton>
 		</div>
 	)
 }
