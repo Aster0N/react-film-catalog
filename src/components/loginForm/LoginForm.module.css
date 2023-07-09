@@ -11,21 +11,8 @@
 	border: 1px solid var(--dark);
 }
 
-.loginForm * {
+.loginForm>* {
 	width: 100%;
-}
-
-.showPassword {
-	width: 15px;
-	height: 15px;
-	justify-self: right;
-	right: 5px;
-	top: -37px;
-	position: relative;
-	cursor: pointer;
-	background-image: url('../../assets/img/eye.svg');
-	background-position: center center;
-	background-size: contain;
 }
 
 .registrationLink {

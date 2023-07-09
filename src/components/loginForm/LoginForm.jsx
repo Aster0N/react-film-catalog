@@ -6,6 +6,10 @@ import classes from './LoginForm.module.css'
 const LoginForm = () => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
+	const togglePassword = () => {
+		setIsPasswordVisible(!isPasswordVisible)
+	}
+
 	return (
 		<form className={classes.loginForm}>
 			<MyInput
@@ -13,13 +17,11 @@ const LoginForm = () => {
 				inputType="email"
 			/>
 			<MyInput
+				togglePassword={togglePassword}
 				inputPlaceholder='Your password'
 				inputType={isPasswordVisible ? 'text' : 'password'}
+				isPasswordInput
 			/>
-			<span
-				onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-				className={classes.showPassword}
-			></span>
 			<MyButton type="submit" className={classes.loginBtn}>login</MyButton>
 			<div>
 				<span>Not a member?</span>&nbsp;
