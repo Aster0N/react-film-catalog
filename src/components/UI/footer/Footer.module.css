@@ -1,10 +1,10 @@
 .footer {
 	background-color: var(--dark-blue);
-	padding: 50px;
+	padding: 30px;
 	text-align: center;
 	min-height: 150px;
 }
 
 .footerInfo {
-	margin: 20px 0 0 0;
+	margin: 10px 0 0 0;
 }
