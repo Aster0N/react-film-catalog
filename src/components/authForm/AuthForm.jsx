@@ -3,15 +3,23 @@ import MyInput from '@/components/UI/input/MyInput'
 import { useState } from 'react'
 import classes from './AuthForm.module.css'
 
-const AuthForm = ({ isLogin, changeForm }) => {
+const AuthForm = ({ isLogin, changeForm, auth }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 	const togglePassword = () => {
 		setIsPasswordVisible(!isPasswordVisible)
 	}
 
+	const handleAuth = (e) => {
+		e.preventDefault()
+		auth()
+	}
+
 	return (
-		<form className={classes.loginForm}>
+		<form
+			onSubmit={handleAuth}
+			className={classes.loginForm}
+		>
 			<h1 className={classes.formTitle}>{isLogin ? 'Login' : 'Register'}</h1>
 			<MyInput
 				inputPlaceholder='Your email'

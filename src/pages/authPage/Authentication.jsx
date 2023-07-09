@@ -7,6 +7,14 @@ import classes from './Authentication.module.css'
 const Authentication = () => {
 	const [isLogin, setIsLogin] = useState(true)
 
+	const logIn = () => {
+		console.log('log in')
+	}
+
+	const signUp = () => {
+		console.log('sign up')
+	}
+
 	return (
 		<div className="_page">
 			<div className="_wrapper">
@@ -15,6 +23,7 @@ const Authentication = () => {
 					<span className={classes.backLinkCaption}>go back</span>
 				</Link>
 				<AuthForm
+					auth={isLogin ? logIn : signUp}
 					isLogin={isLogin}
 					changeForm={() => setIsLogin(!isLogin)}
 				/>
