@@ -1,7 +1,6 @@
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import classes from './LoginForm.module.css'
 
 const LoginForm = () => {
@@ -24,7 +23,9 @@ const LoginForm = () => {
 			<MyButton type="submit" className={classes.loginBtn}>login</MyButton>
 			<div>
 				<span>Not a member?</span>&nbsp;
-				<Link className={classes.registrationLink} to="/registration">Sign up</Link>
+				<span
+					className={classes.registrationLink}
+				>Sign up</span>
 			</div>
 		</form>
 	)

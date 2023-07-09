@@ -23,9 +23,6 @@
 	top: -37px;
 	position: relative;
 	cursor: pointer;
-	background-color: transparent;
-	outline: none;
-	border: none;
 	background-image: url('../../assets/img/eye.svg');
 	background-position: center center;
 	background-size: contain;
@@ -33,9 +30,11 @@
 
 .registrationLink {
 	color: var(--blue);
+	cursor: pointer;
 	transition: color .3s ease-out;
 }
 
 .registrationLink:hover {
 	color: var(--red);
+	text-decoration: underline;
 }
