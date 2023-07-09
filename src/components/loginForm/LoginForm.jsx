@@ -1,26 +1,32 @@
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import classes from './LoginForm.module.css'
 
 const LoginForm = () => {
+	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
 	return (
-		<div className={classes.loginForm}>
+		<form className={classes.loginForm}>
 			<MyInput
-				labelFor={"email"}
-				labelText={"Email"}
 				inputPlaceholder='Your email'
-				inputId="email"
 				inputType="email"
 			/>
 			<MyInput
-				labelFor={"password"}
-				labelText={"Password"}
 				inputPlaceholder='Your password'
-				inputId="password"
-				inputType="password"
+				inputType={isPasswordVisible ? 'text' : 'password'}
 			/>
-			<MyButton className={classes.loginBtn}>login</MyButton>
-		</div>
+			<span
+				onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+				className={classes.showPassword}
+			></span>
+			<MyButton type="submit" className={classes.loginBtn}>login</MyButton>
+			<div>
+				<span>Not a member?</span>&nbsp;
+				<Link className={classes.registrationLink} to="/registration">Sign up</Link>
+			</div>
+		</form>
 	)
 }
 

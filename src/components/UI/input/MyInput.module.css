@@ -1,11 +1,9 @@
-.label {
-	color: #818181;
-	cursor: pointer;
-	margin: 0 0 5px 0;
-}
-
 .myInput {
 	padding: 5px 8px;
 	min-width: 300px;
 	font-size: 16px;
+	border-bottom: 1px solid #898989;
+	border-right: 1px solid transparent;
+	border-top: 1px solid transparent;
+	border-left: 1px solid transparent;
 }
