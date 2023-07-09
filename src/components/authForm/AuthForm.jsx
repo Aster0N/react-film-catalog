@@ -1,9 +1,9 @@
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
 import { useState } from 'react'
-import classes from './LoginForm.module.css'
+import classes from './AuthForm.module.css'
 
-const LoginForm = ({ isLogin, changeForm }) => {
+const AuthForm = ({ isLogin, changeForm }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 	const togglePassword = () => {
@@ -47,4 +47,4 @@ const LoginForm = ({ isLogin, changeForm }) => {
 	)
 }
 
-export default LoginForm
+export default AuthForm

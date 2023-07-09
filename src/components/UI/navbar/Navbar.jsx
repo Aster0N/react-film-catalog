@@ -8,7 +8,7 @@ const Navbar = () => {
 			<div
 				className={[classes.navbarContent, '_wrapper'].join(' ')}
 			>
-				<div><img src={logo} alt="logo" /></div>
+				<Link to="/"><img src={logo} alt="logo" /></Link>
 				<div className={classes.links}>
 					<Link to="/login" className={classes.linkLogin}>login</Link>
 				</div>
