@@ -1,9 +1,9 @@
 import shortLeftArrow from '@/assets/img/short-left-arrow.svg'
 import LoginForm from '@/components/loginForm/LoginForm.jsx'
 import { Link } from "react-router-dom"
-import classes from './Login.module.css'
+import classes from './Authentication.module.css'
 
-const Login = () => {
+const Authentication = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
@@ -17,4 +17,4 @@ const Login = () => {
 	)
 }
 
-export default Login
+export default Authentication
