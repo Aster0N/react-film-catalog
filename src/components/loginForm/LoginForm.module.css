@@ -11,17 +11,25 @@
 	border: 1px solid var(--dark);
 }
 
+.formTitle {
+	font-family: 'inter-bold';
+}
+
 .loginForm>* {
 	width: 100%;
 }
 
-.registrationLink {
+.submitBtn {
+	text-transform: uppercase;
+}
+
+.changeFormLink {
 	color: var(--blue);
 	cursor: pointer;
 	transition: color .3s ease-out;
 }
 
-.registrationLink:hover {
+.changeFormLink:hover {
 	color: var(--red);
 	text-decoration: underline;
 }
