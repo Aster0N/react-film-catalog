@@ -40,7 +40,7 @@ const Home = () => {
 					<AccentTitle>RFC</AccentTitle>
 					<SmallTextBlock className={classes.SmallTextBlockWithMargin}>
 						Is an online cinema that offers a wide range of movies and TV shows for its audience.
-						<Link to="/login">
+						<Link to="/catalog">	
 							<MyButton
 								className={classes.buttonInTextBlock}
 							>explore</MyButton>
