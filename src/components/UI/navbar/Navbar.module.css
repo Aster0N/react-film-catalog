@@ -11,7 +11,12 @@
 	align-items: center;
 }
 
-.linkLogin {
+.links {
+	display: flex;
+	gap: 10px;
+}
+
+.link {
 	color: var(--red);
 	font-size: 18px;
 	font-family: 'crimson-light';
@@ -19,6 +24,6 @@
 	text-transform: uppercase;
 }
 
-.linkLogin:hover {
+.link:hover {
 	text-decoration: underline;
 }

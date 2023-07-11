@@ -10,7 +10,8 @@ const Navbar = () => {
 			>
 				<Link to="/"><img src={logo} alt="logo" /></Link>
 				<div className={classes.links}>
-					<Link to="/login" className={classes.linkLogin}>login</Link>
+					<Link to="/catalog" className={classes.link}>catalog</Link>
+					<Link to="/login" className={classes.link}>login</Link>
 				</div>
 			</div>
 		</div>
