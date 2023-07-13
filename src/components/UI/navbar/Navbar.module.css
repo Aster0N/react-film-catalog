@@ -27,3 +27,9 @@
 .link:hover {
 	text-decoration: underline;
 }
+
+.linkDivider {
+	user-select: none;
+	cursor: default;
+	color: var(--dark);
+}
