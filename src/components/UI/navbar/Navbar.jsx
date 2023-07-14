@@ -11,12 +11,12 @@ const Navbar = () => {
 			<div
 				className={[classes.navbarContent, '_wrapper'].join(' ')}
 			>
-				{(location.pathname !== '/')
-					? <NavMenu />
-					: <Link to="/"><img src={logo} alt="logo" /></Link>
+				{(location.pathname == '/' || location.pathname == '/login')
+					? <Link to="/"><img src={logo} alt="logo" /></Link>
+					: <NavMenu />
 				}
 				<div className={classes.links}>
-					<Link to="/catalog" className={classes.link}>catalog</Link>
+					<Link to="/online-cinema" className={classes.link}>cinema</Link>
 					<span className={classes.linkDivider}>/</span>
 					<Link to="/login" className={classes.link}>login</Link>
 				</div>
