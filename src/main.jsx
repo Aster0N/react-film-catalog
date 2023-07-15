@@ -1,3 +1,4 @@
+import '@/config/firebase.js'
 import "@/styles/fonts.css"
 import React from 'react'
 import ReactDOM from 'react-dom/client'
