@@ -5,6 +5,9 @@ import classes from './AuthForm.module.css'
 
 const AuthForm = ({ isLogin, changeForm, auth }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+	const [userEmail, setUserEmail] = useState('')
+	const [userPassword, setUserPassword] = useState('')
+	const [userPasswordConfirm, setUserPasswordConfirm] = useState('')
 
 	const togglePassword = () => {
 		setIsPasswordVisible(!isPasswordVisible)
@@ -12,7 +15,7 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 
 	const handleAuth = (e) => {
 		e.preventDefault()
-		auth()
+		auth({ userEmail, userPassword })
 	}
 
 	return (
@@ -22,10 +25,12 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 		>
 			<h1 className={classes.formTitle}>{isLogin ? 'Login' : 'Register'}</h1>
 			<MyInput
+				onChange={(e) => setUserEmail(e.target.value)}
 				inputPlaceholder='Your email'
 				inputType="email"
 			/>
 			<MyInput
+				onChange={(e) => setUserPassword(e.target.value)}
 				togglePassword={togglePassword}
 				inputPlaceholder='Your password'
 				inputType={isPasswordVisible ? 'text' : 'password'}
@@ -33,6 +38,7 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 			/>
 			{!isLogin &&
 				<MyInput
+					onChange={(e) => setUserPasswordConfirm(e.target.value)}
 					togglePassword={togglePassword}
 					inputPlaceholder='Repeat the password'
 					inputType={isPasswordVisible ? 'text' : 'password'}
