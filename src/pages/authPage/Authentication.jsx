@@ -9,13 +9,14 @@ const Authentication = () => {
 	const [isLogin, setIsLogin] = useState(true)
 	const [user, setUser] = useState(null)
 
-	const logIn = () => {
-		console.log('log in')
-	}
-
 	const signUp = async ({ userEmail, userPassword }) => {
 		const registeredUser = await UserService.signUp({ userEmail, userPassword })
 		setUser(registeredUser)
+	}
+
+	const logIn = async ({ userEmail, userPassword }) => {
+		const loggedInUser = await UserService.logIn({ userEmail, userPassword })
+		setUser(loggedInUser)
 	}
 
 	return (
