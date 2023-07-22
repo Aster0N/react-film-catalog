@@ -4,10 +4,12 @@ import UserService from '@/services/UserService.js'
 import { useState } from 'react'
 import { Link } from "react-router-dom"
 import classes from './Authentication.module.css'
+import { useContext } from 'react'
+import AuthContext from '@/context/AuthContext.jsx'
 
 const Authentication = () => {
 	const [isLogin, setIsLogin] = useState(true)
-	const [user, setUser] = useState(null)
+	const {user, setUser} = useContext(AuthContext)
 
 	const signUp = async ({ userEmail, userPassword }) => {
 		const registeredUser = await UserService.signUp({ userEmail, userPassword })
