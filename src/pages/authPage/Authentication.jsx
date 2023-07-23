@@ -3,23 +3,26 @@ import AuthForm from '@/components/authForm/AuthForm.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
 import UserService from '@/services/UserService.js'
 import { useContext, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import classes from './Authentication.module.css'
 
 const Authentication = () => {
 	const [isLogin, setIsLogin] = useState(true)
 	const { setUser, setIsAuth } = useContext(AuthContext)
+	const navigate = useNavigate()
 
 	const signUp = async ({ userEmail, userPassword }) => {
 		const registeredUser = await UserService.signUp({ userEmail, userPassword })
 		setUser(registeredUser)
 		setIsAuth(true)
+		navigate('/online-cinema')
 	}
 
 	const logIn = async ({ userEmail, userPassword }) => {
 		const loggedInUser = await UserService.logIn({ userEmail, userPassword })
 		setUser(loggedInUser)
 		setIsAuth(true)
+		navigate('/online-cinema')
 	}
 
 	return (

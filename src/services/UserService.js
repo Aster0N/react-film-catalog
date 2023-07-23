@@ -1,7 +1,8 @@
 import { auth } from '@/config/firebase.js'
 import {
 	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword
+	signInWithEmailAndPassword,
+	signOut
 } from "firebase/auth"
 
 export default class UserService {
@@ -31,5 +32,13 @@ export default class UserService {
 			})
 
 		return user
+	}
+
+	static logOut() {
+		signOut(auth).then(() => {
+			console.log('Signed Out')
+		}).catch((error) => {
+			console.error(error.message)
+		})
 	}
 }
