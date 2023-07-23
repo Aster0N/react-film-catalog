@@ -32,6 +32,7 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 			<MyInput
 				onChange={(e) => setUserPassword(e.target.value)}
 				togglePassword={togglePassword}
+				className={isPasswordVisible ? classes.showPassword_active : ''}
 				inputPlaceholder='Your password'
 				inputType={isPasswordVisible ? 'text' : 'password'}
 				isPasswordInput
@@ -40,6 +41,7 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 				<MyInput
 					onChange={(e) => setUserPasswordConfirm(e.target.value)}
 					togglePassword={togglePassword}
+					className={isPasswordVisible ? classes.showPassword_active : ''}
 					inputPlaceholder='Repeat the password'
 					inputType={isPasswordVisible ? 'text' : 'password'}
 					isPasswordInput

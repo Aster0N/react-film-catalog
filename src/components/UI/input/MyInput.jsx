@@ -7,13 +7,13 @@ const MyInput = ({ inputPlaceholder, inputType, togglePassword, isPasswordInput,
 				{...props}
 				placeholder={inputPlaceholder}
 				type={inputType}
-				className={[classes.myInput, props?.className].join(' ')}
+				className={classes.myInput}
 			/>
 			{isPasswordInput
 				?
 				<span
 					onClick={() => togglePassword()}
-					className={classes.showPassword}
+					className={[classes.showPassword, props?.className].join(' ')}
 				></span>
 				: <></>
 			}
