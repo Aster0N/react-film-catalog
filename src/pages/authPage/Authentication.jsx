@@ -1,4 +1,5 @@
 import shortLeftArrow from '@/assets/img/short-left-arrow.svg'
+import Loader from '@/components/UI/loader/Loader.jsx'
 import AuthForm from '@/components/authForm/AuthForm.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
 import UserService from '@/services/UserService.js'
@@ -8,18 +9,22 @@ import classes from './Authentication.module.css'
 
 const Authentication = () => {
 	const [isLogin, setIsLogin] = useState(true)
-	const { setUser, setIsAuth } = useContext(AuthContext)
+	const { setUser, setIsAuth, isLoading, setIsLoading } = useContext(AuthContext)
 	const navigate = useNavigate()
 
 	const signUp = async ({ userEmail, userPassword }) => {
+		setIsLoading(true)
 		const registeredUser = await UserService.signUp({ userEmail, userPassword })
+		setIsLoading(false)
 		setUser(registeredUser)
 		setIsAuth(true)
 		navigate('/online-cinema')
 	}
 
 	const logIn = async ({ userEmail, userPassword }) => {
+		setIsLoading(true)
 		const loggedInUser = await UserService.logIn({ userEmail, userPassword })
+		setIsLoading(false)
 		setUser(loggedInUser)
 		setIsAuth(true)
 		navigate('/online-cinema')
@@ -32,11 +37,15 @@ const Authentication = () => {
 					<img src={shortLeftArrow} alt="go back" />
 					<span className={classes.backLinkCaption}>go back</span>
 				</Link>
-				<AuthForm
-					auth={isLogin ? logIn : signUp}
-					isLogin={isLogin}
-					changeForm={() => setIsLogin(!isLogin)}
-				/>
+				{isLoading
+					? <Loader />
+					: <AuthForm
+						auth={isLogin ? logIn : signUp}
+						isLogin={isLogin}
+						changeForm={() => setIsLogin(!isLogin)}
+					/>
+				}
+
 			</div>
 		</div>
 	)

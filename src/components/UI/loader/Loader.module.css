@@ -1,0 +1,62 @@
+.loaderWrapper {
+	margin: 10% auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.loaderCaption {
+	text-transform: uppercase;
+	animation: caption 2s ease-in infinite;
+}
+
+.loaderLine {
+	display: inline-block;
+	width: 100px;
+	height: 2px;
+	position: relative;
+	overflow: hidden;
+	background-color: #dadada;
+}
+
+.loaderLine:before {
+	content: "";
+	position: absolute;
+	left: -50%;
+	height: 3px;
+	width: 30%;
+	background-color: var(--blue);
+	animation: line 2s linear infinite;
+}
+
+@keyframes caption {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes line {
+	0% {
+		left: -40%;
+	}
+
+	50% {
+		left: 30%;
+		width: 70%;
+	}
+
+	100% {
+		left: 100%;
+		width: 100%;
+	}
+}
