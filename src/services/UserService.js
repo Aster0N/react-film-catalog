@@ -1,4 +1,5 @@
 import { auth } from '@/config/firebase.js'
+import { getAuthErrorDescription } from '@/helpers/getAuthErrorDescription'
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -7,31 +8,37 @@ import {
 
 export default class UserService {
 	static async signUp({ userEmail, userPassword }) {
-		let user = null
+		let response = {
+			user: null,
+			error: '',
+		}
 
 		await createUserWithEmailAndPassword(auth, userEmail, userPassword)
 			.then((userCredential) => {
-				user = userCredential.user
+				response.user = userCredential.user
 			})
 			.catch((error) => {
-				console.error(error.message)
+				response.error = getAuthErrorDescription(error.code)
 			})
 
-		return user
+		return response
 	}
 
 	static async logIn({ userEmail, userPassword }) {
-		let user = null
+		let response = {
+			user: null,
+			error: '',
+		}
 
 		await signInWithEmailAndPassword(auth, userEmail, userPassword)
 			.then((userCredential) => {
-				user = userCredential.user
+				response.user = userCredential.user
 			})
 			.catch((error) => {
-				console.error(error.message)
+				response.error = getAuthErrorDescription(error.code)
 			})
 
-		return user
+		return response
 	}
 
 	static logOut() {

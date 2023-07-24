@@ -1,9 +1,10 @@
+import cross from '@/assets/img/cross.svg'
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
 import { useState } from 'react'
 import classes from './AuthForm.module.css'
 
-const AuthForm = ({ isLogin, changeForm, auth }) => {
+const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 	const [userEmail, setUserEmail] = useState('')
 	const [userPassword, setUserPassword] = useState('')
@@ -59,6 +60,14 @@ const AuthForm = ({ isLogin, changeForm, auth }) => {
 					{isLogin ? 'Sign up' : 'Sign in'}
 				</span>
 			</div>
+			{authError &&
+				<div className={classes.errorBlock}>
+					<button className={classes.removeAuthErrorBtn} onClick={removeAuthError}>
+						<img src={cross} alt="close" />
+					</button>
+					<span>{authError}</span>
+				</div>
+			}
 		</form>
 	)
 }
