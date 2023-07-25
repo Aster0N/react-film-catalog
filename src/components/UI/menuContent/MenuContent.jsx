@@ -22,13 +22,13 @@ const MenuContent = ({ isOpen }) => {
 				isOpen ? classes.menuOpen : ''
 				].join(' ')}
 		>
-			<ul>
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="/online-cinema">Online cinema</Link></li>
-				<li><Link to="/catalog">Catalog</Link></li>
-				<li><Link to="/favorites">Favorites</Link></li>
-				<li><Link to="/saved">Saved</Link></li>
-				<li><button onClick={logOut}>logout</button></li>
+			<ul className={classes.list}>
+				<li><Link className={classes.link} to="/">Home</Link></li>
+				<li><Link className={classes.link} to="/online-cinema">Online cinema</Link></li>
+				<li><Link className={classes.link} to="/catalog">Catalog</Link></li>
+				<li><Link className={classes.link} to="/favorites">Favorites</Link></li>
+				<li><Link className={classes.link} to="/saved">Saved</Link></li>
+				<li><button className={classes.logout} onClick={logOut}>logout</button></li>
 			</ul>
 		</div>
 	)

@@ -3,7 +3,6 @@
 	pointer-events: none;
 	opacity: 0;
 	visibility: hidden;
-	padding: 30px;
 	position: absolute;
 	top: 65px;
 	left: 12.5vw;
@@ -17,4 +16,46 @@
 	pointer-events: all;
 	opacity: 1;
 	visibility: visible;
+}
+
+.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list li {
+	width: 100%;
+}
+
+.link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 5px 30px;
+	text-decoration: none;
+	transition: all .2s ease-out;
+}
+
+.link:hover {
+	background-color: var(--dark);
+	color: var(--text-light);
+}
+
+.logout {
+	width: 100%;
+	height: 100%;
+	padding: 5px 30px;
+	cursor: pointer;
+	text-align: left;
+	text-transform: uppercase;
+	background-color: #ffc0c0;
+	color: var(--red);
+	transition: all .2s ease-out;
+	border: none;
+	border-top: 1px solid gray;
+}
+
+.logout:hover {
+	background-color: #ffabab;
 }
