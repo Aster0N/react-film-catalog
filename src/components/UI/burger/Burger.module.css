@@ -1,0 +1,46 @@
+.burger {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.burger:hover .linesWrapper {
+	transform: translateX(57px);
+}
+
+.lines {
+	height: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.linesWrapper {
+	position: relative;
+	right: 57px;
+	height: 1.5px;
+	width: 85px;
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.linesWrapper1 {
+	transition: transform .3s ease-in;
+}
+
+.linesWrapper2 {
+	transition: transform .5s ease-in;
+}
+
+.line {
+	height: 1.5px;
+	width: 30px;
+	background-color: var(--dark-blue);
+}
