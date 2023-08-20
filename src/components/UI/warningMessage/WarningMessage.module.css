@@ -1,0 +1,8 @@
+.warningWrapper {
+	display: flex;
+	column-gap: 10px;
+	padding: 5px;
+	border: 1px solid #ff9605;
+	background-color: #ffe2b8;
+	border-radius: 5px;
+}

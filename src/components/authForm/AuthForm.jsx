@@ -1,6 +1,7 @@
 import cross from '@/assets/img/cross.svg'
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
+import WarningMessage from '@/components/UI/warningMessage/WarningMessage'
 import { useInputValidation } from '@/hooks/useInputValidation'
 import { useState } from 'react'
 import classes from './AuthForm.module.css'
@@ -37,7 +38,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 				inputType="email"
 			/>
 			{(!userEmail.isEmail.valid && userEmail.isDirty)
-				&& <span>{userEmail.isEmail.error}</span>}
+				&& <WarningMessage>{userEmail.isEmail.error}</WarningMessage>}
 			<MyInput
 				value={userPassword.value}
 				onChange={userPassword.onChange}
@@ -49,9 +50,9 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 				isPasswordInput
 			/>
 			{(!userPassword.isNormalLength.valid && userPassword.isDirty)
-				&& <span>{userPassword.isNormalLength.error}</span>}
+				&& <WarningMessage>{userPassword.isNormalLength.error}</WarningMessage>}
 			{(!userPassword.isPassword.valid && userPassword.isDirty)
-				&& <span>{userPassword.isPassword.error}</span>}
+				&& <WarningMessage>{userPassword.isPassword.error}</WarningMessage>}
 			{
 				!isLogin &&
 				<MyInput
