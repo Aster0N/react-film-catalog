@@ -1,14 +1,18 @@
 import cross from '@/assets/img/cross.svg'
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import MyInput from '@/components/UI/input/MyInput'
+import { useInputValidation } from '@/hooks/useInputValidation'
 import { useState } from 'react'
 import classes from './AuthForm.module.css'
 
 const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-	const [userEmail, setUserEmail] = useState('')
-	const [userPassword, setUserPassword] = useState('')
 	const [userPasswordConfirm, setUserPasswordConfirm] = useState('')
+	const userEmail = useInputValidation('', { checkIsEmail: true })
+	const userPassword = useInputValidation('', {
+		checkMinLength: 8,
+		checkIsPassword: true
+	})
 
 	const togglePassword = () => {
 		setIsPasswordVisible(!isPasswordVisible)
@@ -26,19 +30,30 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 		>
 			<h1 className={classes.formTitle}>{isLogin ? 'Login' : 'Register'}</h1>
 			<MyInput
-				onChange={(e) => setUserEmail(e.target.value)}
+				value={userEmail.value}
+				onChange={userEmail.onChange}
+				onBlur={userEmail.onBlur}
 				inputPlaceholder='Your email'
 				inputType="email"
 			/>
+			{(!userEmail.isEmail.valid && userEmail.isDirty)
+				&& <span>{userEmail.isEmail.error}</span>}
 			<MyInput
-				onChange={(e) => setUserPassword(e.target.value)}
+				value={userPassword.value}
+				onChange={userPassword.onChange}
+				onBlur={userPassword.onBlur}
 				togglePassword={togglePassword}
 				className={isPasswordVisible ? classes.showPassword_active : ''}
 				inputPlaceholder='Your password'
 				inputType={isPasswordVisible ? 'text' : 'password'}
 				isPasswordInput
 			/>
-			{!isLogin &&
+			{(!userPassword.isNormalLength.valid && userPassword.isDirty)
+				&& <span>{userPassword.isNormalLength.error}</span>}
+			{(!userPassword.isPassword.valid && userPassword.isDirty)
+				&& <span>{userPassword.isPassword.error}</span>}
+			{
+				!isLogin &&
 				<MyInput
 					onChange={(e) => setUserPasswordConfirm(e.target.value)}
 					togglePassword={togglePassword}
@@ -60,7 +75,8 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 					{isLogin ? 'Sign up' : 'Sign in'}
 				</span>
 			</div>
-			{authError &&
+			{
+				authError &&
 				<div className={classes.errorBlock}>
 					<button className={classes.removeAuthErrorBtn} onClick={removeAuthError}>
 						<img src={cross} alt="close" />
@@ -68,7 +84,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 					<span>{authError}</span>
 				</div>
 			}
-		</form>
+		</form >
 	)
 }
 
