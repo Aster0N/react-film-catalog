@@ -21,7 +21,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 
 	const handleAuth = (e) => {
 		e.preventDefault()
-		auth({ userEmail, userPassword })
+		auth({ userEmail: userEmail.value, userPassword: userPassword.value })
 	}
 
 	return (
@@ -64,6 +64,8 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 					isPasswordInput
 				/>
 			}
+			{(!isLogin && userPassword.isDirty && (userPasswordConfirm !== userPassword.value || !userPasswordConfirm))
+				&& <WarningMessage>Invalid password</WarningMessage>}
 			<MyButton type="submit" className={classes.submitBtn}>
 				{isLogin ? 'log in' : 'submit'}
 			</MyButton>
