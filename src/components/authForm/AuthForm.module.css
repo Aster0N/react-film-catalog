@@ -23,6 +23,13 @@
 	text-transform: uppercase;
 }
 
+.submitBtn:disabled {
+	opacity: .7;
+	pointer-events: none;
+	user-select: none;
+	border: 1px solid #ff9605;
+}
+
 .changeFormLink {
 	color: var(--blue);
 	cursor: pointer;

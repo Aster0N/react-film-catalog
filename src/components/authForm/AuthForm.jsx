@@ -8,6 +8,7 @@ import classes from './AuthForm.module.css'
 
 const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+	const [isErrorExists, setIsErrorExists] = useState(false)
 	const [userPasswordConfirm, setUserPasswordConfirm] = useState('')
 	const userEmail = useInputValidation('', { checkIsEmail: true })
 	const userPassword = useInputValidation('', {
@@ -24,6 +25,22 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 		auth({ userEmail: userEmail.value, userPassword: userPassword.value })
 	}
 
+	const showEmailError = () => {
+		return (!userEmail.isEmail.valid && userEmail.isDirty)
+	}
+	const showPasswordError = () => {
+		return (!userPassword.isPassword.valid && userPassword.isDirty)
+	}
+	const showPasswordLengthError = () => {
+		return (!userPassword.isNormalLength.valid && userPassword.isDirty)
+	}
+	const showPasswordConfirmationError = () => {
+		return (!isLogin && userPassword.isDirty && (userPasswordConfirm !== userPassword.value || !userPasswordConfirm))
+	}
+	const disableSubmitButton = () => {
+		return showEmailError() || showPasswordError() || showPasswordLengthError() || showPasswordConfirmationError()
+	}
+
 	return (
 		<form
 			onSubmit={handleAuth}
@@ -37,8 +54,9 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 				inputPlaceholder='Your email'
 				inputType="email"
 			/>
-			{(!userEmail.isEmail.valid && userEmail.isDirty)
-				&& <WarningMessage>{userEmail.isEmail.error}</WarningMessage>}
+			{showEmailError()
+				&& <WarningMessage>{userEmail.isEmail.error}</WarningMessage>
+			}
 			<MyInput
 				value={userPassword.value}
 				onChange={userPassword.onChange}
@@ -49,12 +67,13 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 				inputType={isPasswordVisible ? 'text' : 'password'}
 				isPasswordInput
 			/>
-			{(!userPassword.isNormalLength.valid && userPassword.isDirty)
-				&& <WarningMessage>{userPassword.isNormalLength.error}</WarningMessage>}
-			{(!userPassword.isPassword.valid && userPassword.isDirty)
-				&& <WarningMessage>{userPassword.isPassword.error}</WarningMessage>}
-			{
-				!isLogin &&
+			{showPasswordLengthError()
+				&& <WarningMessage>{userPassword.isNormalLength.error}</WarningMessage>
+			}
+			{showPasswordError()
+				&& <WarningMessage>{userPassword.isPassword.error}</WarningMessage>
+			}
+			{!isLogin &&
 				<MyInput
 					onChange={(e) => setUserPasswordConfirm(e.target.value)}
 					togglePassword={togglePassword}
@@ -64,9 +83,10 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 					isPasswordInput
 				/>
 			}
-			{(!isLogin && userPassword.isDirty && (userPasswordConfirm !== userPassword.value || !userPasswordConfirm))
-				&& <WarningMessage>Invalid password</WarningMessage>}
-			<MyButton type="submit" className={classes.submitBtn}>
+			{showPasswordConfirmationError()
+				&& <WarningMessage>Invalid password</WarningMessage>
+			}
+			<MyButton type="submit" disabled={disableSubmitButton()} className={classes.submitBtn}>
 				{isLogin ? 'log in' : 'submit'}
 			</MyButton>
 			<div>
@@ -78,8 +98,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 					{isLogin ? 'Sign up' : 'Sign in'}
 				</span>
 			</div>
-			{
-				authError &&
+			{authError &&
 				<div className={classes.errorBlock}>
 					<button className={classes.removeAuthErrorBtn} onClick={removeAuthError}>
 						<img src={cross} alt="close" />
