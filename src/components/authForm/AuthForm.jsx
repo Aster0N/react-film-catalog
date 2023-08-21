@@ -8,7 +8,6 @@ import classes from './AuthForm.module.css'
 
 const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-	const [isErrorExists, setIsErrorExists] = useState(false)
 	const [userPasswordConfirm, setUserPasswordConfirm] = useState('')
 	const userEmail = useInputValidation('', { checkIsEmail: true })
 	const userPassword = useInputValidation('', {
