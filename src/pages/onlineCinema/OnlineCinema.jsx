@@ -1,28 +1,18 @@
 import MovieCard from '@/components/movieCard/MovieCard'
-import { db } from '@/config/firebase.js'
-import { collection, getDocs } from "firebase/firestore"
+import CinemaService from '@/services/CinemaService'
 import { useEffect, useState } from 'react'
 import classes from './OnlineCinema.module.css'
 
 const OnlineCinema = () => {
 	const [movieList, setMovieList] = useState([])
 
-	const getMovieList = async () => {
-		const moviesCollectionRef = collection(db, "movies")
-		try {
-			const data = await getDocs(moviesCollectionRef)
-			const filteredData = data.docs.map(doc => ({
-				...doc.data(),
-				id: doc.id
-			}))
-			setMovieList(filteredData)
-		} catch (err) {
-			console.error(err)
-		}
+	const getMoviesData = async () => {
+		const response = await CinemaService.getMovieList()
+		setMovieList(response)
 	}
 
 	useEffect(() => {
-		getMovieList()
+		getMoviesData()
 	}, [])
 
 	return (
