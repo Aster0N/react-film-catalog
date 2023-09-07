@@ -1,5 +1,5 @@
 import { db } from '@/config/firebase.js'
-import { collection, getDocs } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs } from "firebase/firestore"
 
 export default class CinemaService {
 	static async getMovieList() {
@@ -16,5 +16,17 @@ export default class CinemaService {
 		}
 	}
 
-	
+	static async loadMovieById(id) {
+		const docRef = doc(db, "movies", id)
+		try {
+			const dataSnapshot = await getDoc(docRef)
+			if (dataSnapshot.exists()) {
+				return dataSnapshot.data()
+			} else {
+				console.error(`Document with id ${id} does not exist`)
+			}
+		} catch (err) {
+			console.error(err)
+		}
+	}
 }
