@@ -24,6 +24,7 @@ export default class CinemaService {
 				return dataSnapshot.data()
 			} else {
 				console.error(`Document with id ${id} does not exist`)
+				return null
 			}
 		} catch (err) {
 			console.error(err)
