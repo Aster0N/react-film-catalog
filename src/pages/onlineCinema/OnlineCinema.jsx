@@ -2,6 +2,7 @@ import MyButton from '@/components/UI/button/MyButton'
 import MovieCard from '@/components/movieCard/MovieCard'
 import CinemaService from '@/services/CinemaService'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import classes from './OnlineCinema.module.css'
 
 const OnlineCinema = () => {
@@ -34,10 +35,6 @@ const OnlineCinema = () => {
 		})
 	}
 
-	const seeAll = () => {
-		console.log('see all')
-	}
-
 	useEffect(() => {
 		getListPreview()
 	}, [])
@@ -54,7 +51,10 @@ const OnlineCinema = () => {
 					)}
 				</div>
 				{hideShowMoreBtn
-					? <MyButton onClick={() => seeAll()}>see all</MyButton>
+					?
+					<Link to={'/catalog'}>
+						<MyButton onClick={() => seeAll()}>see all</MyButton>
+					</Link>
 					: <MyButton onClick={() => showMore()}>show more</MyButton>
 				}
 			</div>
