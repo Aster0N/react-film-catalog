@@ -13,7 +13,6 @@
 }
 
 .menuWrapper.menuOpen {
-	user-select: all;
 	pointer-events: all;
 	opacity: 1;
 	visibility: visible;
