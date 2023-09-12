@@ -1,5 +1,13 @@
 import { db } from '@/config/firebase.js'
-import { collection, doc, getDoc, getDocs, limit, query, startAfter } from "firebase/firestore"
+import {
+	collection,
+	doc,
+	getDoc,
+	getDocs,
+	limit,
+	query,
+	startAfter
+} from "firebase/firestore"
 
 let previewDocsLimit = 0
 
