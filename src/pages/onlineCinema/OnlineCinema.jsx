@@ -42,6 +42,7 @@ const OnlineCinema = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
+				<h2 className={classes.movieListTitle}>For you</h2>
 				<div className={classes.movieList}>
 					{movieListPreview.map(movie =>
 						<MovieCard
@@ -50,13 +51,12 @@ const OnlineCinema = () => {
 						/>
 					)}
 				</div>
-				{hideShowMoreBtn
-					?
-					<Link to={'/catalog'}>
-						<MyButton onClick={() => seeAll()}>see all</MyButton>
-					</Link>
-					: <MyButton onClick={() => showMore()}>show more</MyButton>
-				}
+				<div className={classes.buttonWrapper}>
+					{hideShowMoreBtn
+						? <Link to={'/catalog'}><MyButton>see all</MyButton></Link>
+						: <MyButton onClick={() => showMore()}>show more</MyButton>
+					}
+				</div>
 			</div>
 		</div>
 	)
