@@ -1,3 +1,4 @@
+import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 import MyButton from '@/components/UI/button/MyButton'
 import MovieCard from '@/components/movieCard/MovieCard'
 import CinemaService from '@/services/CinemaService'
@@ -42,7 +43,7 @@ const OnlineCinema = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<h2 className={classes.movieListTitle}>For you</h2>
+				<AccentTitle className={classes.movieListTitle}>For you</AccentTitle>
 				<div className={classes.movieList}>
 					{movieListPreview.map(movie =>
 						<MovieCard

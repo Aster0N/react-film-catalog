@@ -1,8 +1,8 @@
 import classes from './AccentTitle.module.css'
 
-const AccentTitle = ({ children }) => {
+const AccentTitle = ({ children, ...props }) => {
 	return (
-		<h2 className={classes.accentTitle}>
+		<h2 className={[classes.accentTitle, props?.className].join(' ')}>
 			{children}
 		</h2>
 	)
