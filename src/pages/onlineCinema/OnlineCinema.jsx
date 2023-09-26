@@ -1,5 +1,4 @@
 import MyButton from '@/components/UI/button/MyButton'
-import Loader from '@/components/UI/loader/Loader'
 import MovieCard from '@/components/movieCard/MovieCard'
 import AuthContext from '@/context/AuthContext'
 import CinemaService from '@/services/CinemaService'
@@ -47,6 +46,7 @@ const OnlineCinema = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
+				<AccentTitle className={classes.movieListTitle}>For you</AccentTitle>
 				{isLoading
 					? <Loader />
 					: <div className={classes.movieList}>
@@ -58,14 +58,12 @@ const OnlineCinema = () => {
 						)}
 					</div>
 				}
-
-				{hideShowMoreBtn
-					?
-					<Link to={'/catalog'}>
-						<MyButton>see all</MyButton>
-					</Link>
-					: <MyButton onClick={() => showMore()}>show more</MyButton>
-				}
+				<div className={classes.buttonWrapper}>
+					{hideShowMoreBtn
+						? <Link to={'/catalog'}><MyButton>see all</MyButton></Link>
+						: <MyButton onClick={() => showMore()}>show more</MyButton>
+					}
+				</div>
 			</div>
 		</div>
 	)
