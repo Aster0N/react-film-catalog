@@ -9,7 +9,7 @@
 	border: 1px solid var(--dark);
 	background-color: #fff;
 	transition: all .3s ease-in;
-	border-radius: 10px;
+	border-radius: 11px;
 }
 
 .menuWrapper.menuOpen {
@@ -54,7 +54,6 @@
 	color: var(--red);
 	transition: all .2s ease-out;
 	border: none;
-	border-top: 1px solid gray;
 	border-radius: 10px;
 }
 

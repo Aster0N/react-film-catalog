@@ -3,6 +3,7 @@ import AuthContext from '@/context/AuthContext.jsx'
 import CinemaService from '@/services/CinemaService'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import uuid from 'react-uuid'
 import classes from './MoviePageById.module.css'
 
 const MoviePageById = () => {
@@ -26,7 +27,8 @@ const MoviePageById = () => {
 			<div className="_wrapper">
 				{isLoading
 					? <Loader />
-					: <div className={classes.movieInfoWrapper}>
+					:
+					<div className={classes.movieInfoWrapper}>
 						<div className={classes.moviePoster}>
 							<img src={movie.poster} alt="poster" />
 						</div>
@@ -35,6 +37,13 @@ const MoviePageById = () => {
 							<p>{movie.year}</p>
 							<p>{movie.plot_overview}</p>
 							<p>{movie.genre_names}</p>
+							<p>{movie.runtime_minutes}</p>
+							<p>{movie.user_rating}</p>
+							<p>{movie.trailer_thumbnail}</p>
+							<p>{movie.trailer}</p>
+							{movie.sources?.map(src =>
+								(<p key={uuid()}>{src.name}</p>)
+							)}
 						</div>
 					</div>
 				}

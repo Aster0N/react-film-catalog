@@ -1,3 +1,4 @@
+import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader'
 import MovieCard from '@/components/movieCard/MovieCard'
@@ -6,7 +7,6 @@ import CinemaService from '@/services/CinemaService'
 import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import classes from './OnlineCinema.module.css'
-import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 
 const OnlineCinema = () => {
 	const [movieListPreview, setMovieListPreview] = useState([])
