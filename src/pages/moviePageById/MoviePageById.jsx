@@ -1,9 +1,9 @@
+import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
 import CinemaService from '@/services/CinemaService'
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import uuid from 'react-uuid'
 import classes from './MoviePageById.module.css'
 
 const MoviePageById = () => {
@@ -18,6 +18,10 @@ const MoviePageById = () => {
 		setIsLoading(false)
 	}
 
+	const getMovieDuration = (minutes) => {
+		return minutes > 60 ? `${+(minutes / 60).toFixed(1)} h` : `${minutes} min`
+	}
+
 	useEffect(() => {
 		loadMovieData()
 	}, [])
@@ -30,39 +34,38 @@ const MoviePageById = () => {
 					:
 					<>
 						<div className={classes.mainInfoWrapper}>
-							<div className={classes.movieMainInfo}>
-								<div className={classes.moviePoster}>
-									<img src={movie.poster} alt="poster" />
+							<div className={classes.mainInfoPoster}>
+								<img src={movie.poster} alt="poster" />
+							</div>
+							<div className={classes.info}>
+								<div className={classes.movieTitle}>{movie.title}</div>
+								<div className={classes.movieAdditionalInfo}>
+									<span>{movie.release_date}</span>
+									<span> / {getMovieDuration(movie.runtime_minutes)}</span>
+									{(movie.genre_names?.length) > 0 &&
+										<span> / {movie.genre_names?.map(genre => `${genre} `)}</span>
+									}
+									<br />
+									<span className={classes.userRating}>{movie.user_rating}</span>
 								</div>
-								<h1>{movie.title}</h1>
-								<p>{movie.year}</p>
-								<p>{movie.user_rating}</p>
-							</div>
-
-							<div className={classes.movieInfo}>
-								Overview
-								<p>{movie.plot_overview}</p>
-								Genre
-								<p>{movie.genre_names}</p>
-								Film duration <span>{movie.runtime_minutes}</span>
+								<div className={classes.moviePlotOverview}>{movie.plot_overview}</div>
+								<div className={classes.dividerLine}></div>
+								<div className={classes.actions}>
+									<div className={classes.saveMovieBtn}>save</div>
+									{(movie.trailer || movie.sources) &&
+										<MyButton>watch</MyButton>
+									}
+								</div>
 							</div>
 						</div>
 
-						<div className={classes.movieTrailer}>
-							<a href={movie.trailer} target="_blank">
-								<img src={movie.trailer_thumbnail} alt="trailer thumbnail" />
-							</a>
-						</div>
+						{movie.trailer &&
+							<div className={classes.movieTrailer}>{/* COMPONENT */}</div>
+						}
 
-						<div className={classes.movieSource}>
-							Other sources
-							{movie.sources?.map(src =>
-							(<p key={uuid()}>
-								<a href={src.web_url} target="_blank">{src.name}</a>
-								<span> ({src.format})</span>
-							</p>)
-							)}
-						</div>
+						{movie.sources &&
+							<div className={classes.movieSource}>{/* COMPONENT */}</div>
+						}
 					</>
 				}
 			</div>

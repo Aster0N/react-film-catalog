@@ -1,15 +1,64 @@
 .mainInfoWrapper {
-	padding: 20px 0;
+	padding: 50px 0;
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 30px;
+	column-gap: 50px;
 }
 
-.movieMainInfo {
+.mainInfoPoster {
 	width: 30%;
 }
 
-.movieInfo {
-	width: 70%;
+.mainInfoPoster img {
+	width: 100%;
 }
+
+@media screen and (min-width: 1440px) {
+	.info {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 1441px) {
+	.info {
+		width: 70%;
+	}
+}
+
+.movieTitle {
+	font-family: 'crimson-bold';
+	font-size: 80px;
+	margin: 0 0 20px 0;
+}
+
+.movieAdditionalInfo * {
+	font-family: 'crimson-regular';
+	font-size: 20px;
+	font-style: italic;
+}
+
+.userRating {
+	font-family: 'crimson-bold';
+	color: var(--red);
+	font-size: 26px;
+	font-style: normal;
+}
+
+.moviePlotOverview {
+	margin: 7vh 0 0 0;
+	font-size: 24px;
+}
+
+.dividerLine {
+	margin: 5vh 0 0 0;
+	background-color: rgba(40, 34, 36, 0.3);
+	height: 1px;
+}
+
+.actions {
+	padding: 50px 0 0 0;
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+}
+
+.saveMovieBtn {}
