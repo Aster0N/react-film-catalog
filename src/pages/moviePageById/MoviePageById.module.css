@@ -41,6 +41,10 @@
 	color: var(--red);
 	font-size: 26px;
 	font-style: normal;
+	display: flex;
+	margin: 10px 0 0 0;
+	align-items: center;
+	gap: 10px;
 }
 
 .moviePlotOverview {
@@ -61,4 +65,13 @@
 	column-gap: 20px;
 }
 
-.saveMovieBtn {}
+.saveMovieBtn {
+	display: flex;
+	width: 80px;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}

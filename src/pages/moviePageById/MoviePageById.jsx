@@ -1,3 +1,6 @@
+import bookmarkActive from '@/assets/img/bookmark-active.svg'
+import bookmark from '@/assets/img/bookmark.svg'
+import starRed from '@/assets/img/star-red.svg'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
@@ -9,6 +12,7 @@ import classes from './MoviePageById.module.css'
 const MoviePageById = () => {
 	const params = useParams()
 	const [movie, setMovie] = useState({})
+	const [isMovieSaved, setIsMovieSaved] = useState(false)
 	const { isLoading, setIsLoading } = useContext(AuthContext)
 
 	const loadMovieData = async () => {
@@ -20,6 +24,10 @@ const MoviePageById = () => {
 
 	const getMovieDuration = (minutes) => {
 		return minutes > 60 ? `${+(minutes / 60).toFixed(1)} h` : `${minutes} min`
+	}
+
+	const saveMovie = () => {
+		setIsMovieSaved(!isMovieSaved)
 	}
 
 	useEffect(() => {
@@ -46,12 +54,17 @@ const MoviePageById = () => {
 										<span> / {movie.genre_names?.map(genre => `${genre} `)}</span>
 									}
 									<br />
-									<span className={classes.userRating}>{movie.user_rating}</span>
+									<span className={classes.userRating}>
+										<img src={starRed} alt="rating-star" />{movie.user_rating}
+									</span>
 								</div>
 								<div className={classes.moviePlotOverview}>{movie.plot_overview}</div>
 								<div className={classes.dividerLine}></div>
 								<div className={classes.actions}>
-									<div className={classes.saveMovieBtn}>save</div>
+									<button className={classes.saveMovieBtn} onClick={saveMovie}>
+										<img src={!isMovieSaved ? bookmark : bookmarkActive} alt="bookmark-icon" />
+										{!isMovieSaved ? 'save' : 'saved'}
+									</button>
 									{(movie.trailer || movie.sources) &&
 										<MyButton>watch</MyButton>
 									}
