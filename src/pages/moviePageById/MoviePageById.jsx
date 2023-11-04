@@ -3,6 +3,7 @@ import bookmark from '@/assets/img/bookmark.svg'
 import starRed from '@/assets/img/star-red.svg'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
+import VideoPlayer from '@/components/videoPlayer/VideoPlayer'
 import AuthContext from '@/context/AuthContext.jsx'
 import CinemaService from '@/services/CinemaService'
 import React, { useContext, useEffect, useState } from 'react'
@@ -26,7 +27,23 @@ const MoviePageById = () => {
 		return minutes > 60 ? `${+(minutes / 60).toFixed(1)} h` : `${minutes} min`
 	}
 
+	const scrollToWatchBlock = () => {
+
+		if (movie.trailer.length) {
+			const el = document.getElementById('trailer-player')
+			const scrollOptions = { behavior: 'smooth', top: el.offsetTop }
+			window.scrollTo(scrollOptions)
+			return
+		}
+		if (movie.sources.length) {
+			const el = document.getElementById('sources')
+			const scrollOptions = { behavior: 'smooth', top: el.offsetTop }
+			window.scrollTo(scrollOptions)
+		}
+	}
+
 	const saveMovie = () => {
+		// TODO -> save movie in database
 		setIsMovieSaved(!isMovieSaved)
 	}
 
@@ -66,18 +83,22 @@ const MoviePageById = () => {
 										{!isMovieSaved ? 'save' : 'saved'}
 									</button>
 									{(movie.trailer || movie.sources) &&
-										<MyButton>watch</MyButton>
+										<MyButton onClick={scrollToWatchBlock}>watch</MyButton>
 									}
 								</div>
 							</div>
 						</div>
-
 						{movie.trailer &&
-							<div className={classes.movieTrailer}>{/* COMPONENT */}</div>
+							<>
+								<h2 id="trailer-player" className={classes.title}>Trailer</h2>
+								<VideoPlayer
+									videoUrl={movie.trailer}
+								/>
+							</>
 						}
 
 						{movie.sources &&
-							<div className={classes.movieSource}>{/* COMPONENT */}</div>
+							<div id="sources" className={classes.movieSource}>{/* COMPONENT */}</div>
 						}
 					</>
 				}
