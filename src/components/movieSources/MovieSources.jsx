@@ -1,11 +1,18 @@
 import classes from './MovieSources.module.css'
 
 const MovieSources = ({ sources }) => {
+	const getRandomHEX = () => {
+		const randomAlpha = Math.random() * (0.4 - 0.1) + 0.1
+		const randomHex = ("00000" + ((Math.random() * (1 << 24)) | 0).toString(16)).slice(-6)
+		return `#${randomHex}${Math.floor(randomAlpha * 255).toString(16)}`
+	}
+
 	return (
 		<div className={classes.sourcesWrapper}>
 			{sources.map(src =>
 				<a
 					href={src.web_url}
+					style={{ backgroundColor: getRandomHEX() }}
 					key={`${src.web_url}-${src.price}-${src.format}`}
 					className={classes.source}
 					target='_blank'
