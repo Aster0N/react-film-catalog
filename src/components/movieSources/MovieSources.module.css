@@ -1,0 +1,25 @@
+.sourcesWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 30px;
+	font-family: 'inter-regular';
+	font-size: 20px;
+	padding: 0 0 30px 0;
+}
+
+.source {
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 50px;
+	height: 100px;
+	border: 1px solid var(--dark);
+	border-radius: 10px;
+}
+
+.srcPrice {
+	font-family: 'inter-bold';
+}

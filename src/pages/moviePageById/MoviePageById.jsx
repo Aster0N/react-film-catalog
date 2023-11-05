@@ -3,6 +3,7 @@ import bookmark from '@/assets/img/bookmark.svg'
 import starRed from '@/assets/img/star-red.svg'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
+import MovieSources from '@/components/movieSources/MovieSources'
 import VideoPlayer from '@/components/videoPlayer/VideoPlayer'
 import AuthContext from '@/context/AuthContext.jsx'
 import CinemaService from '@/services/CinemaService'
@@ -82,7 +83,7 @@ const MoviePageById = () => {
 										<img src={!isMovieSaved ? bookmark : bookmarkActive} alt="bookmark-icon" />
 										{!isMovieSaved ? 'save' : 'saved'}
 									</button>
-									{(movie.trailer || movie.sources) &&
+									{(movie.trailer?.length > 0 || movie.sources?.length > 0) &&
 										<MyButton onClick={scrollToWatchBlock}>watch</MyButton>
 									}
 								</div>
@@ -91,14 +92,15 @@ const MoviePageById = () => {
 						{movie.trailer &&
 							<>
 								<h2 id="trailer-player" className={classes.title}>Trailer</h2>
-								<VideoPlayer
-									videoUrl={movie.trailer}
-								/>
+								<VideoPlayer videoUrl={movie.trailer} />
 							</>
 						}
 
-						{movie.sources &&
-							<div id="sources" className={classes.movieSource}>{/* COMPONENT */}</div>
+						{(movie.sources?.length > 0) &&
+							<>
+								<h2 id="sources" className={classes.title}>Watch</h2>
+								<MovieSources sources={movie.sources} />
+							</>
 						}
 					</>
 				}
