@@ -3,6 +3,7 @@ import MovieCard from '@/components/movieCard/MovieCard'
 import AuthContext from '@/context/AuthContext'
 import CinemaService from '@/services/CinemaService'
 import React, { useContext, useEffect, useState } from 'react'
+import classes from './MovieCatalog.module.css'
 
 const MovieCatalog = () => {
 	const [movieList, setMovieList] = useState([])
@@ -16,10 +17,6 @@ const MovieCatalog = () => {
 	}
 
 	useEffect(() => {
-		console.log(movieList)
-	}, [movieList])
-
-	useEffect(() => {
 		loadFullMovieList()
 	}, [])
 
@@ -29,14 +26,14 @@ const MovieCatalog = () => {
 				{isLoading
 					? <Loader />
 					:
-					<>
+					<div className={classes.catalogWrapper}>
 						{movieList.map(movie =>
 							<MovieCard
 								key={movie.id}
 								movieData={movie}
 							/>
 						)}
-					</>
+					</div>
 				}
 			</div>
 		</div>
