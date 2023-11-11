@@ -8,7 +8,9 @@ const MovieCard = ({ movieData }) => {
 			<div
 				className={classes.card}
 				style={{
-					backgroundImage: `url(${movieData.backdrop})`,
+					backgroundImage: `url(${movieData.backdrop
+						? movieData.backdrop
+						: movieData.poster})`,
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
 					backgroundRepeat: 'no-repeat'

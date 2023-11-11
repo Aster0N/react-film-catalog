@@ -13,7 +13,7 @@ const OnlineCinema = () => {
 	const [hideShowMoreBtn, setHideShowMoreBtn] = useState(false)
 	const [expansionsCount, setExpansionsCount] = useState(0)
 	const { isLoading, setIsLoading } = useContext(AuthContext)
-	const listExpansionsLimit = 2
+	const listExpansionsLimit = 5
 
 	const getListPreview = async () => {
 		setIsLoading(true)
