@@ -1,5 +1,6 @@
 import Loader from '@/components/UI/loader/Loader'
 import MovieCard from '@/components/movieCard/MovieCard'
+import pageAnimation from '@/components/pageAnimation.jsx'
 import AuthContext from '@/context/AuthContext'
 import CinemaService from '@/services/CinemaService'
 import React, { useContext, useEffect, useState } from 'react'
@@ -40,4 +41,4 @@ const MovieCatalog = () => {
 	)
 }
 
-export default MovieCatalog
+export default pageAnimation(MovieCatalog)

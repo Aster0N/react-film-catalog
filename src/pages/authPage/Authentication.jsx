@@ -1,6 +1,7 @@
 import shortLeftArrow from '@/assets/img/short-left-arrow.svg'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import AuthForm from '@/components/authForm/AuthForm.jsx'
+import pageAnimation from '@/components/pageAnimation.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
 import UserService from '@/services/UserService.js'
 import { useContext, useState } from 'react'
@@ -65,4 +66,4 @@ const Authentication = () => {
 	)
 }
 
-export default Authentication
+export default pageAnimation(Authentication)

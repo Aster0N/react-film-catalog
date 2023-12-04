@@ -1,6 +1,7 @@
 import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 import MyButton from '@/components/UI/button/MyButton'
 import SmallTextBlock from '@/components/UI/smallTextBlock/SmallTextBlock'
+import pageAnimation from '@/components/pageAnimation.jsx'
 import { Link } from 'react-router-dom'
 import classes from './Home.module.css'
 
@@ -81,4 +82,4 @@ const Home = () => {
 	)
 }
 
-export default Home
+export default pageAnimation(Home)

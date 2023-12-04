@@ -2,6 +2,7 @@ import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader'
 import MovieCard from '@/components/movieCard/MovieCard'
+import pageAnimation from '@/components/pageAnimation.jsx'
 import AuthContext from '@/context/AuthContext'
 import CinemaService from '@/services/CinemaService'
 import { useContext, useEffect, useState } from 'react'
@@ -71,4 +72,4 @@ const OnlineCinema = () => {
 	)
 }
 
-export default OnlineCinema
+export default pageAnimation(OnlineCinema)

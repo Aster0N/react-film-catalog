@@ -4,6 +4,7 @@ import starRed from '@/assets/img/star-red.svg'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import MovieSources from '@/components/movieSources/MovieSources'
+import pageAnimation from '@/components/pageAnimation.jsx'
 import VideoPlayer from '@/components/videoPlayer/VideoPlayer'
 import AuthContext from '@/context/AuthContext.jsx'
 import CinemaService from '@/services/CinemaService'
@@ -109,4 +110,4 @@ const MoviePageById = () => {
 	)
 }
 
-export default MoviePageById
+export default pageAnimation(MoviePageById)
