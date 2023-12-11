@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid'
 import classes from './MovieSources.module.css'
 
 const MovieSources = ({ sources }) => {
@@ -13,7 +14,7 @@ const MovieSources = ({ sources }) => {
 				<a
 					href={src.web_url}
 					style={{ backgroundColor: getRandomHEX() }}
-					key={`${src.web_url}-${src.price}-${src.format}`}
+					key={uuidv4()}
 					className={classes.source}
 					target='_blank'
 				>

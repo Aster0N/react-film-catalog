@@ -1,12 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
-const pageAnimation = (WrappedComponent) => {
-	const randomId = () => {
-		return Math.random() * 1000000 + Math.random() * 1000000
-	}
+import { v4 as uuidv4 } from 'uuid'
 
+const pageAnimation = (WrappedComponent) => {
 	return (
 		<AnimatePresence mode='wait'>
-			<div key={randomId()}>
+			<div key={uuidv4()}>
 				<WrappedComponent />
 				<motion.div
 					className='_slide-in'
