@@ -24,7 +24,7 @@
 .linesWrapper {
 	position: relative;
 	right: 57px;
-	height: 1.5px;
+	height: 2px;
 	width: 85px;
 	display: flex;
 	justify-content: space-between;
@@ -40,7 +40,7 @@
 }
 
 .line {
-	height: 1.5px;
+	height: 2px;
 	width: 30px;
 	background-color: var(--dark-blue);
 }
