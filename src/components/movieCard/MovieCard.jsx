@@ -14,12 +14,7 @@ const MovieCard = ({ movieData }) => {
 		<Link to={`/online-cinema/movie/${movieData.id}`}>
 			<div
 				className={classes.card}
-				style={{
-					backgroundImage: `url(${getBgPoster()})`,
-					backgroundPosition: 'center',
-					backgroundSize: 'cover',
-					backgroundRepeat: 'no-repeat'
-				}}
+				style={{ backgroundImage: `url(${getBgPoster()})` }}
 			>
 				<span className={classes.movieTitle}>{movieData.title}</span>
 			</div>

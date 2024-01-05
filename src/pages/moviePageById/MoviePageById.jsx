@@ -30,7 +30,6 @@ const MoviePageById = () => {
 	}
 
 	const scrollToWatchBlock = () => {
-
 		if (movie.trailer.length) {
 			const el = document.getElementById('trailer-player')
 			const scrollOptions = { behavior: 'smooth', top: el.offsetTop }
