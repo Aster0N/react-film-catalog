@@ -1,10 +1,15 @@
 :root {
-	--red: #D4183A;
+	--dark-text: #1E1E1E;
+	--light-text: #F6F6F6;
 	--dark: #282224;
-	--text-light: #F6F6F6;
-	--text-dark: #1E1E1E;
-	--dark-blue: #014753;
-	--blue: #5560ff;
+	/* light theme */
+	--page-light: #FFE9D4;
+	--primary-light: #282224;
+	--accent-light: #C43054;
+	/* dark theme */
+	--page-dark: #282224;
+	--primary-dark: #53323D;
+	--accent-dark: #F46A66;
 }
 
 * {
