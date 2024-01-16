@@ -1,9 +1,3 @@
-import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
-import MyButton from '@/components/UI/button/MyButton'
-import SmallTextBlock from '@/components/UI/smallTextBlock/SmallTextBlock'
-import pageAnimation from '@/components/pageAnimation.jsx'
-import { Link } from 'react-router-dom'
-import classes from './Home.module.css'
 
 const Home = () => {
 	const benefits = [
@@ -32,51 +26,96 @@ const Home = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<div className={classes.mainTitle}>
-					<span>React </span>
-					<span>Film </span>
-					<span>Catalog</span>
-				</div>
-				<div className={classes.textBlock}>
-					<AccentTitle>RFC</AccentTitle>
-					<SmallTextBlock className={classes.SmallTextBlockWithMargin}>
-						Is an online cinema that offers a wide range of movies and TV shows for its audience.
-						<Link to="/online-cinema">
-							<MyButton
-								className={classes.buttonInTextBlock}
-							>explore</MyButton>
-						</Link>
-					</SmallTextBlock>
-				</div>
-			</div>
-			<div className={classes.coverImg}></div>
-			<div className="_wrapper">
-				<div className={classes.textBlock}>
-					<AccentTitle>Idea</AccentTitle>
-					<div className={classes.SmallTextBlockWithMargin}>
-						<SmallTextBlock>
-							The idea of creating RFC started with a group of movie enthusiasts who wanted to make cinema accessible to everyone.
-						</SmallTextBlock>
-						<SmallTextBlock>
-							Their vision was to create a user-friendly platform that would offer a vast collection of movies, catering to the diverse tastes of the audience.
-						</SmallTextBlock>
+				<div className="_content_block">
+					<div className="_left_block">
+						<img src="" alt="logo" />
+						{/* line as after element */}
+					</div>
+					<div className="_right_block">
+						graphic
 					</div>
 				</div>
-				<div className={classes.benefitsBlock}>
-					<AccentTitle >Benefits</AccentTitle>
-					<div className={classes.benefitsContent}>
+
+				<div className="_content_block">
+					<div className="_left_block">
+						<p>- Join us and explore a universe of captivating storytelling,
+							breathtaking visuals, and unforgettable moments.</p>
+					</div>
+					<div className="_right_block">
+						<p>Is an online cinema that offers a wide range of movies and TV
+							shows for its audience.</p>
+						<p>User-friendly platform that would offer a vast collection of
+							movies, catering to the diverse tastes of the audience</p>
+						<button>explore</button>
+					</div>
+				</div>
+
+				<div className="_content_block">
+					<div className="_left_block">
+						<h2>The idea</h2>
+						<p>The idea of creating this platform started with a group of movie
+							enthusiasts who wanted to make cinema accessible to everyone.</p>
+						<img src="" alt="star" />
+						<img src="" alt="star" />
+						<p>Our passion for movies and commitment to providing an exceptional
+							cinematic experience is evident in every aspect of our grand project.</p>
+						<p>Our team of dedicated enthusiasts put their heart and soul into
+							creating an online movie theater that exceeded expectations.</p>
+						<img src="" alt="star" />
+					</div>
+					<div className="_right_block">
+						<img src="" alt="abstract-image" />
+					</div>
+				</div>
+
+				<div className="_content_block">
+					<div className="_left_block">
+						<h2>Benefits</h2>
+
 						{benefits.map(benefit =>
-							<SmallTextBlock
-								className={classes.benefit}
-								key={benefit.content}
-							>
-								<span className={classes.benefitTitle}>{benefit.title}</span>
-								{benefit.content}
-							</SmallTextBlock>
+							(benefits.indexOf(benefit) % 2 == 0) &&
+							<div className="benefit">
+								<div className="benefit-header">
+									<span>0{benefits.indexOf(benefit) + 1}</span>
+									<span>{benefit.title}</span>
+								</div>
+								<div className="benefit-body">
+									{benefit.content}
+								</div>
+							</div>
+						)}
+					</div>
+					<div className="_right_block">
+						{benefits.map(benefit =>
+							(benefits.indexOf(benefit) % 2 !== 0) &&
+							<div className="benefit">
+								<div className="benefit-header">
+									<span>0{benefits.indexOf(benefit) + 1}</span>
+									<span>{benefit.title}</span>
+								</div>
+								<div className="benefit-body">
+									{benefit.content}
+								</div>
+							</div>
 						)}
 					</div>
 				</div>
-				<div className={classes.filmIllustration}></div>
+
+				<div className="_content_block">
+					<div className="_left_block">
+						<h2>Join us now</h2>
+						<p>
+							Sit back, relax, and enjoy a cinematic journey from the comfort
+							of your own home. No need to rush to the theaters or stand in queue -
+							now you can catch the latest blockbusters and timeless classics anytime, anywhere.
+						</p>
+					</div>
+					<div className="_right_block">
+						<button>get started</button>
+					</div>
+				</div>
+
+				<img src="" alt="abstract-icon" />
 			</div>
 		</div>
 	)
