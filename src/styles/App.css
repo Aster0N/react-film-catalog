@@ -50,8 +50,23 @@ main>div {
 }
 
 ._wrapper {
-	width: 75vw;
+	width: 70vw;
 	margin: 0 auto;
+}
+
+._content_block {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+._left_block {
+	width: 60%;
+}
+
+._right_block {
+	width: 40%;
 }
 
 ._page {

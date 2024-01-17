@@ -1,3 +1,11 @@
+import graphicRoundedLight from '@/assets/img/graphic-rounded-light.svg'
+import graphicSharpedLight from '@/assets/img/graphic-sharped-light.svg'
+import logoPreviewImage from '@/assets/img/logo-preview.svg'
+import starLight from '@/assets/img/star-light.svg'
+import MyButton from '@/components/UI/button/MyButton.jsx'
+import pageAnimation from '@/components/pageAnimation.jsx'
+import { Link } from 'react-router-dom'
+import cl from './Home.module.css'
 
 const Home = () => {
 	const benefits = [
@@ -26,27 +34,40 @@ const Home = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<div className="_content_block">
-					<div className="_left_block">
-						<img src="" alt="logo" />
-						{/* line as after element */}
+				<div className={[cl.block1, "_content_block"].join(' ')}>
+					<div className={[cl.leftBlock1, "_left_block"].join(' ')}>
+						<img src={logoPreviewImage} alt="logo" />
 					</div>
-					<div className="_right_block">
-						graphic
+					<div className={[cl.rightBlock1, "_right_block"].join(' ')}>
+						<img src={graphicSharpedLight} alt="abstract graphic" />
 					</div>
 				</div>
 
-				<div className="_content_block">
-					<div className="_left_block">
+				<div className={[cl.block2, "_content_block"].join(' ')}>
+					<div className={[cl.leftBlock2, "_left_block"].join(' ')}>
 						<p>- Join us and explore a universe of captivating storytelling,
 							breathtaking visuals, and unforgettable moments.</p>
 					</div>
-					<div className="_right_block">
-						<p>Is an online cinema that offers a wide range of movies and TV
-							shows for its audience.</p>
-						<p>User-friendly platform that would offer a vast collection of
-							movies, catering to the diverse tastes of the audience</p>
-						<button>explore</button>
+					<div className={[cl.rightBlock2, "_right_block"].join(' ')}>
+						<ul className={cl.preferences}>
+							<li>
+								<p>
+									Is an online cinema that offers a wide range of movies and TV
+									shows for its audience
+								</p>
+							</li>
+							<li>
+								<p>
+									User-friendly platform that would offer a vast collection of
+									movies, catering to the diverse tastes of the audience
+								</p>
+							</li>
+						</ul>
+						<Link to="/online-cinema">
+							<MyButton
+								className={cl.buttonInTextBlock}
+							>explore</MyButton>
+						</Link>
 					</div>
 				</div>
 
@@ -55,16 +76,16 @@ const Home = () => {
 						<h2>The idea</h2>
 						<p>The idea of creating this platform started with a group of movie
 							enthusiasts who wanted to make cinema accessible to everyone.</p>
-						<img src="" alt="star" />
-						<img src="" alt="star" />
+						<img src={starLight} alt="star" />
+						<img src={starLight} alt="star" />
 						<p>Our passion for movies and commitment to providing an exceptional
 							cinematic experience is evident in every aspect of our grand project.</p>
 						<p>Our team of dedicated enthusiasts put their heart and soul into
 							creating an online movie theater that exceeded expectations.</p>
-						<img src="" alt="star" />
+						<img src={starLight} alt="star" />
 					</div>
 					<div className="_right_block">
-						<img src="" alt="abstract-image" />
+						{/* bg image '@/assets/img/abstract-image.png' */}
 					</div>
 				</div>
 
@@ -74,7 +95,7 @@ const Home = () => {
 
 						{benefits.map(benefit =>
 							(benefits.indexOf(benefit) % 2 == 0) &&
-							<div className="benefit">
+							<div className="benefit" key={benefit.title}>
 								<div className="benefit-header">
 									<span>0{benefits.indexOf(benefit) + 1}</span>
 									<span>{benefit.title}</span>
@@ -88,7 +109,7 @@ const Home = () => {
 					<div className="_right_block">
 						{benefits.map(benefit =>
 							(benefits.indexOf(benefit) % 2 !== 0) &&
-							<div className="benefit">
+							<div className="benefit" key={benefit.title}>
 								<div className="benefit-header">
 									<span>0{benefits.indexOf(benefit) + 1}</span>
 									<span>{benefit.title}</span>
@@ -115,7 +136,7 @@ const Home = () => {
 					</div>
 				</div>
 
-				<img src="" alt="abstract-icon" />
+				<img src={graphicRoundedLight} alt="abstract graphic" />
 			</div>
 		</div>
 	)
