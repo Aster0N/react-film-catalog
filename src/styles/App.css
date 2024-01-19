@@ -93,3 +93,11 @@ main>div {
 	background-color: var(--dark);
 	transform-origin: top;
 }
+
+._title {
+	color: var(--text-dark);
+	font-family: "space-grotesk-regular";
+	font-size: 40px;
+	font-style: normal;
+	line-height: normal;
+}

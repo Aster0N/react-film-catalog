@@ -45,7 +45,8 @@ const Home = () => {
 
 				<div className={[cl.block2, "_content_block"].join(' ')}>
 					<div className={[cl.leftBlock2, "_left_block"].join(' ')}>
-						<p>- Join us and explore a universe of captivating storytelling,
+						<p className={cl.joinText}>
+							- Join us and explore a universe of captivating storytelling,
 							breathtaking visuals, and unforgettable moments.</p>
 					</div>
 					<div className={[cl.rightBlock2, "_right_block"].join(' ')}>
@@ -71,21 +72,26 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className="_content_block">
-					<div className="_left_block">
-						<h2>The idea</h2>
-						<p>The idea of creating this platform started with a group of movie
-							enthusiasts who wanted to make cinema accessible to everyone.</p>
-						<img src={starLight} alt="star" />
-						<img src={starLight} alt="star" />
-						<p>Our passion for movies and commitment to providing an exceptional
-							cinematic experience is evident in every aspect of our grand project.</p>
-						<p>Our team of dedicated enthusiasts put their heart and soul into
-							creating an online movie theater that exceeded expectations.</p>
-						<img src={starLight} alt="star" />
+				<div className={[cl.block3, "_content_block"].join(' ')}>
+					<div className={[cl.leftBlock3, "_left_block"].join(' ')}>
+						<h2 className={[cl.ideaTitle, "_title"].join(' ')}>The idea</h2>
+						<div className={cl.ideaRow}>
+							<p className={cl.ideaContent}>The idea of creating this platform started with a group of movie
+								enthusiasts who wanted to make cinema accessible to everyone.</p>
+							<img src={starLight} alt="star" />
+						</div>
+						<div className={cl.ideaRow}>
+							<img src={starLight} alt="star" />
+							<p className={cl.ideaContent}>Our passion for movies and commitment to providing an exceptional
+								cinematic experience is evident in every aspect of our grand project.</p>
+						</div>
+						<div className={cl.ideaRow}>
+							<p className={cl.ideaContent}>Our team of dedicated enthusiasts put their heart and soul into
+								creating an online movie theater that exceeded expectations.</p>
+							<img src={starLight} alt="star" />
+						</div>
 					</div>
-					<div className="_right_block">
-						{/* bg image '@/assets/img/abstract-image.png' */}
+					<div className={[cl.rightBlock3, "_right_block"].join(' ')}>
 					</div>
 				</div>
 

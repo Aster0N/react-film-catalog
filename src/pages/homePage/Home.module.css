@@ -64,6 +64,10 @@
 	margin: 0 0 15px 0;
 }
 
+.joinText {
+	max-width: 500px;
+}
+
 .preferences li p {
 	vertical-align: top;
 	display: inline-block;
@@ -72,4 +76,43 @@
 
 .exploreLink {
 	margin: 0 0 0 40px;
+	max-width: 150px;
+}
+
+.block3 {
+	height: 450px;
+	margin: 120px 0 0 0;
+}
+
+.ideaTitle {
+	margin: 0 0 40px 0;
+}
+
+.leftBlock3 {
+	height: 100%;
+	width: 100%;
+	padding: 0 50px 0 0;
+}
+
+.rightBlock3 {
+	height: 100%;
+	width: 100%;
+	background-image: url('@/assets/img/abstract-image.png');
+	background-repeat: no-repeat;
+	background-position: cover;
+}
+
+.ideaRow {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ideaRow:not(:last-child) {
+	margin: 0 0 80px 0;
+}
+
+.ideaContent {
+	max-width: 370px;
 }
