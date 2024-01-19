@@ -1,9 +1,9 @@
 .myButton {
-	padding: 10px 15px;
-	border-radius: 10px;
+	padding: 10px;
 	border: 1px solid var(--dark);
-	background-color: var(--page);
-	color: var(--text-dark);
+	color: var(--dark-text);
+	background-color: transparent;
+	text-transform: uppercase;
 	min-width: 150px;
 	min-height: 50px;
 	cursor: pointer;
@@ -12,5 +12,6 @@
 
 .myButton:hover {
 	transform: translateY(-5px);
-	border: 1px solid var(--red);
+	border: 1px solid var(--accent-light);
+	color: var(--accent-light);
 }

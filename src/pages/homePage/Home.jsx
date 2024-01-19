@@ -63,7 +63,7 @@ const Home = () => {
 								</p>
 							</li>
 						</ul>
-						<Link to="/online-cinema">
+						<Link to="/online-cinema" className={cl.exploreLink}>
 							<MyButton
 								className={cl.buttonInTextBlock}
 							>explore</MyButton>

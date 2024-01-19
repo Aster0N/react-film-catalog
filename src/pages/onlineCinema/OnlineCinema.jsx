@@ -1,4 +1,3 @@
-import AccentTitle from '@/components/UI/accentTitle/AccentTitle'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader'
 import MovieCard from '@/components/movieCard/MovieCard'
@@ -49,7 +48,7 @@ const OnlineCinema = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<AccentTitle className={classes.movieListTitle}>For you</AccentTitle>
+				For you
 				{isLoading
 					? <Loader />
 					: <div className={classes.movieList}>
