@@ -94,36 +94,39 @@ const Home = () => {
 					<div className={[cl.rightBlock3, "_right_block"].join(' ')}></div>
 				</div>
 
-				<div className="_content_block">
-					<div className="_left_block">
-						<h2>Benefits</h2>
-
-						{benefits.map(benefit =>
-							(benefits.indexOf(benefit) % 2 == 0) &&
-							<div className="benefit" key={benefit.title}>
-								<div className="benefit-header">
-									<span>0{benefits.indexOf(benefit) + 1}</span>
-									<span>{benefit.title}</span>
+				<div className={[cl.block4, "_content_block"].join(' ')}>
+					<div className={[cl.leftBlock4, "_left_block"].join(' ')}>
+						<h2 className={[cl.benefitsTitle, "_title"].join(' ')}>Benefits</h2>
+						<div className={cl.benefitsLeftCol}>
+							{benefits.map(benefit =>
+								(benefits.indexOf(benefit) % 2 == 0) &&
+								<div className={cl.benefit} key={benefit.title}>
+									<div className={cl.benefitHeader}>
+										<span className={cl.benefitNumber}>0{benefits.indexOf(benefit) + 1}</span>
+										<span className={cl.benefitTitle}>{benefit.title}</span>
+									</div>
+									<div className={cl.benefitBody}>
+										{benefit.content}
+									</div>
 								</div>
-								<div className="benefit-body">
-									{benefit.content}
-								</div>
-							</div>
-						)}
+							)}
+						</div>
 					</div>
-					<div className="_right_block">
-						{benefits.map(benefit =>
-							(benefits.indexOf(benefit) % 2 !== 0) &&
-							<div className="benefit" key={benefit.title}>
-								<div className="benefit-header">
-									<span>0{benefits.indexOf(benefit) + 1}</span>
-									<span>{benefit.title}</span>
+					<div className={[cl.rightBlock4, "_right_block"].join(' ')}>
+						<div className={cl.benefitsRightCol}>
+							{benefits.map(benefit =>
+								(benefits.indexOf(benefit) % 2 !== 0) &&
+								<div className={cl.benefit} key={benefit.title}>
+									<div className={cl.benefitHeader}>
+										<span className={cl.benefitNumber}>0{benefits.indexOf(benefit) + 1}</span>
+										<span className={cl.benefitTitle}>{benefit.title}</span>
+									</div>
+									<div className={cl.benefitBody}>
+										{benefit.content}
+									</div>
 								</div>
-								<div className="benefit-body">
-									{benefit.content}
-								</div>
-							</div>
-						)}
+							)}
+						</div>
 					</div>
 				</div>
 
