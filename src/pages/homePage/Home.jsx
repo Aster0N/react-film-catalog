@@ -91,8 +91,7 @@ const Home = () => {
 							<img src={starLight} alt="star" />
 						</div>
 					</div>
-					<div className={[cl.rightBlock3, "_right_block"].join(' ')}>
-					</div>
+					<div className={[cl.rightBlock3, "_right_block"].join(' ')}></div>
 				</div>
 
 				<div className="_content_block">
