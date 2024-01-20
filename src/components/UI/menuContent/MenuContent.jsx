@@ -2,9 +2,9 @@ import AuthContext from '@/context/AuthContext'
 import UserService from '@/services/UserService'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import classes from './MenuContent.module.css'
+import cl from './MenuContent.module.css'
 
-const MenuContent = ({ isOpen }) => {
+const MenuContent = ({ isOpen, showMenu }) => {
 	const { setIsAuth, setUser } = useContext(AuthContext)
 	const navigate = useNavigate()
 
@@ -18,17 +18,23 @@ const MenuContent = ({ isOpen }) => {
 	return (
 		<div
 			className={
-				[classes.menuWrapper,
-				isOpen ? classes.menuOpen : ''
+				[cl.menuWrapper,
+				isOpen ? cl.menuOpen : ''
 				].join(' ')}
 		>
-			<ul className={classes.list}>
-				<li><Link className={classes.link} to="/">Home</Link></li>
-				<li><Link className={classes.link} to="/online-cinema">Online cinema</Link></li>
-				<li><Link className={classes.link} to="/catalog">Catalog</Link></li>
-				<li><Link className={classes.link} to="/saved">Saved</Link></li>
-				<li><button className={classes.logout} onClick={logOut}>logout</button></li>
-			</ul>
+			<div className={cl.menuHeader}>
+				<span className={cl.menuTitle}>menu</span>
+				<button onClick={showMenu} className={cl.closeMenuBtn}></button>
+			</div>
+			<div className={cl.menuContent}>
+				<ul className={cl.list}>
+					<li><Link className={cl.link} to="/">Home</Link></li>
+					<li><Link className={cl.link} to="/online-cinema">Online cinema</Link></li>
+					<li><Link className={cl.link} to="/catalog">Catalog</Link></li>
+					<li><Link className={cl.link} to="/saved">Saved</Link></li>
+				</ul>
+				<button className={cl.logout} onClick={logOut}>logout</button>
+			</div>
 		</div>
 	)
 }

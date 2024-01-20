@@ -42,5 +42,5 @@
 .line {
 	height: 2px;
 	width: 30px;
-	background-color: var(--dark-blue);
+	background-color: var(--light-text);
 }
