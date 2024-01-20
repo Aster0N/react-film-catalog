@@ -1,4 +1,4 @@
-import logo from "@/assets/img/dark-logo.svg"
+import logo from "@/assets/img/logo-light.svg"
 import NavMenu from '@/components/navMenu/NavMenu.jsx'
 import { Link, useLocation } from 'react-router-dom'
 import classes from './Navbar.module.css'
