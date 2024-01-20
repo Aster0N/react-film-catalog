@@ -65,16 +65,14 @@ const Home = () => {
 							</li>
 						</ul>
 						<Link to="/online-cinema" className={cl.exploreLink}>
-							<MyButton
-								className={cl.buttonInTextBlock}
-							>explore</MyButton>
+							<MyButton>explore</MyButton>
 						</Link>
 					</div>
 				</div>
 
 				<div className={[cl.block3, "_content_block"].join(' ')}>
 					<div className={[cl.leftBlock3, "_left_block"].join(' ')}>
-						<h2 className={[cl.ideaTitle, "_title"].join(' ')}>The idea</h2>
+						<h2 className="_title">The idea</h2>
 						<div className={cl.ideaRow}>
 							<p className={cl.ideaContent}>The idea of creating this platform started with a group of movie
 								enthusiasts who wanted to make cinema accessible to everyone.</p>
@@ -96,7 +94,7 @@ const Home = () => {
 
 				<div className={[cl.block4, "_content_block"].join(' ')}>
 					<div className={[cl.leftBlock4, "_left_block"].join(' ')}>
-						<h2 className={[cl.benefitsTitle, "_title"].join(' ')}>Benefits</h2>
+						<h2 className="_title">Benefits</h2>
 						<div className={cl.benefitsLeftCol}>
 							{benefits.map(benefit =>
 								(benefits.indexOf(benefit) % 2 == 0) &&
@@ -130,21 +128,27 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className="_content_block">
-					<div className="_left_block">
-						<h2>Join us now</h2>
-						<p>
+				<div className={[cl.block5, "_content_block"].join(' ')}>
+					<div className={[cl.leftBlock5, "_left_block"].join(' ')}>
+						<h2 className="_title">Join us now</h2>
+						<p className={cl.joinUsText}>
 							Sit back, relax, and enjoy a cinematic journey from the comfort
 							of your own home. No need to rush to the theaters or stand in queue -
 							now you can catch the latest blockbusters and timeless classics anytime, anywhere.
 						</p>
 					</div>
-					<div className="_right_block">
-						<button>get started</button>
+					<div className={[cl.rightBlock5, "_right_block"].join(' ')}>
+						<Link to="/online-cinema">
+							<MyButton
+								className={cl.getStartedBtn}
+							>get started</MyButton>
+						</Link>
 					</div>
 				</div>
 
-				<img src={graphicRoundedLight} alt="abstract graphic" />
+				<div className={cl.roundedGraphic}>
+					<img src={graphicRoundedLight} alt="abstract graphic" />
+				</div>
 			</div>
 		</div>
 	)
