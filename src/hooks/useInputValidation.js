@@ -15,12 +15,12 @@ const validate = (value, rules) => {
 						: setIsEmail({ valid: false, error: "Invalid email address" })
 					break
 				case "checkIsPassword":
-					const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{3,}$/
+					const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>?])\S{3,}$/
 					regexPassword.test(String(value))
 						? setIsPassword({ valid: true, error: "" })
 						: setIsPassword({
 							valid: false,
-							error: "Password must have at least one uppercase letter, one lowercase letter and one number"
+							error: "Password must have at least one uppercase letter, one lowercase letter, one number and one special character"
 						})
 					break
 				case "checkMinLength":
