@@ -1,4 +1,4 @@
-import shortLeftArrow from '@/assets/img/short-left-arrow.svg'
+import starLightEmpty from '@/assets/img/star-light-empty.svg'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import AuthForm from '@/components/authForm/AuthForm.jsx'
 import pageAnimation from '@/components/pageAnimation.jsx'
@@ -48,8 +48,8 @@ const Authentication = () => {
 		<div className="_page">
 			<div className="_wrapper">
 				<Link to=".." className={classes.backLink}>
-					<img src={shortLeftArrow} alt="go back" />
 					<span className={classes.backLinkCaption}>go back</span>
+					<img src={starLightEmpty} alt="star" />
 				</Link>
 				{isLoading
 					? <Loader />
