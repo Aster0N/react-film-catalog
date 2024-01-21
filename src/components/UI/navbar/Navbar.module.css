@@ -18,9 +18,9 @@
 }
 
 .link {
-	color: var(--red);
-	font-size: 18px;
-	font-family: 'crimson-light';
+	color: var(--light-text);
+	font-size: 24px;
+	font-family: 'space-grotesk-light';
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -32,5 +32,7 @@
 .linkDivider {
 	user-select: none;
 	cursor: default;
-	color: var(--dark);
+	font-size: 20px;
+	font-family: 'space-grotesk-light';	
+	color: var(--accent-light);
 }
