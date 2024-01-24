@@ -1,24 +1,30 @@
 @media screen and (min-width: 1451px) {
 	.card {
-		width: 18.2vw;
+		width: 17vw;
 	}
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1660px) {
 	.card {
-		width: 24.3vw;
+		width: 22.8vw;
 	}
 }
 
-@media screen and (max-width: 1046px) {
+@media screen and (max-width: 1374px) {
 	.card {
-		width: 36.7vw;
+		width: 22.7vw;
 	}
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 1170px) {
 	.card {
-		width: 74.5vw;
+		width: 34.3vw;
+	}
+}
+
+@media screen and (max-width: 860px) {
+	.card {
+		width: 69.2vw;
 	}
 }
 
