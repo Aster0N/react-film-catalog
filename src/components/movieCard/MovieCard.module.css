@@ -31,24 +31,50 @@
 .card {
 	cursor: pointer;
 	height: 200px;
-	border: 3px solid rgb(192, 192, 192);
-	border-radius: 10px;
+	border: 1px solid var(--dark);
 	transition: all .3s ease-out;
 	overflow: hidden;
 	padding: 5px;
-	box-shadow: inset 0px 30px 20px rgba(30, 30, 30, 0.8);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	position: relative;
+}
+
+.card::after {
+	content: 'watch';
+	color: var(--accent-light);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(40, 34, 36, 1);
+	font-size: 24px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateY(100%);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .2s ease-out;
 }
 
 .card:hover {
-	border: 3px solid var(--blue);
+	border: 1px solid var(--accent-light);
+}
+
+.card:hover::after {
+	transform: translateY(0);
+	opacity: 1;
+	visibility: visible;
 }
 
 .movieTitle {
-	font-family: 'inter-bold';
-	color: var(--text-light);
 	text-transform: uppercase;
 	user-select: none;
+	color: var(--light-text);
+	padding: 0 5px;
+	background-color: rgba(0, 0, 0, 0.5);
 }

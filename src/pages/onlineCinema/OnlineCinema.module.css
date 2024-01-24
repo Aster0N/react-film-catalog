@@ -14,3 +14,26 @@
 	padding: 20px 0;
 	text-align: center;
 }
+
+.filterButtons {
+	margin: 30px 0 40px;
+}
+
+.filterButton {
+	font-size: 24px;
+	text-transform: uppercase;
+	margin: 0 20px 0 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transform: all .3s ease-out;
+}
+
+.filterButton:hover {
+	color: var(--accent-light);
+}
+
+.filter_active {
+	text-decoration: underline;
+}

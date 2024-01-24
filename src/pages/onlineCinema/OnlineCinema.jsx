@@ -48,7 +48,10 @@ const OnlineCinema = () => {
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				For you
+				<div className={classes.filterButtons}>
+					<button className={[classes.filterButton, classes.filter_active].join(' ')}>for you</button>
+					<button className={classes.filterButton}>saved</button>
+				</div>
 				{isLoading
 					? <Loader />
 					: <div className={classes.movieList}>
