@@ -8,11 +8,6 @@ const NavMenu = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const showMenu = () => {
 		setIsMenuOpen(!isMenuOpen)
-		if (!isMenuOpen == true) {
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = 'visible'
-		}
 	}
 	useEffect(() => {
 		setIsMenuOpen(false)
