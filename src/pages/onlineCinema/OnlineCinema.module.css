@@ -20,6 +20,7 @@
 }
 
 .filterButton {
+	font-family: 'space-grotesk-light';
 	font-size: 24px;
 	text-transform: uppercase;
 	margin: 0 20px 0 0;

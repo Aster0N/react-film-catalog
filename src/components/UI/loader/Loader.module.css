@@ -1,34 +1,25 @@
 .loaderWrapper {
-	margin: 10% auto;
+	margin: 5% auto;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 	gap: 15px;
 }
 
 .loaderCaption {
+	color: var(--accent-light);
+	user-select: none;
 	text-transform: uppercase;
 	animation: caption 2s ease-in infinite;
 }
 
-.loaderLine {
-	display: inline-block;
-	width: 100px;
-	height: 2px;
-	position: relative;
-	overflow: hidden;
-	background-color: #dadada;
-}
-
-.loaderLine:before {
-	content: "";
-	position: absolute;
-	left: -50%;
-	height: 3px;
-	width: 30%;
-	background-color: var(--blue);
-	animation: line 2s linear infinite;
+.loaderStar {
+	background-image: url('@/assets/img/star-thin.svg');
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	animation: star-rotation 2s linear infinite;
 }
 
 @keyframes caption {
@@ -45,18 +36,18 @@
 	}
 }
 
-@keyframes line {
+@keyframes star-rotation {
 	0% {
-		left: -40%;
+		transform: rotate(0deg);
+		opacity: 1;
 	}
 
 	50% {
-		left: 30%;
-		width: 70%;
+		opacity: 0;
 	}
 
 	100% {
-		left: 100%;
-		width: 100%;
+		transform: rotate(360deg);
+		opacity: 1;
 	}
 }
