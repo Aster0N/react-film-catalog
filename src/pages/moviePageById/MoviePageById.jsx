@@ -1,6 +1,6 @@
 import bookmarkActive from '@/assets/img/bookmark-active.svg'
 import bookmark from '@/assets/img/bookmark.svg'
-import starRed from '@/assets/img/star-red.svg'
+import sunImg from '@/assets/img/sun-light.svg'
 import MyButton from '@/components/UI/button/MyButton'
 import Loader from '@/components/UI/loader/Loader.jsx'
 import MovieSources from '@/components/movieSources/MovieSources'
@@ -73,7 +73,7 @@ const MoviePageById = () => {
 									}
 									<br />
 									<span className={classes.userRating}>
-										<img src={starRed} alt="rating-star" />{movie.user_rating}
+										<img src={sunImg} alt="rating-star" />{movie.user_rating}
 									</span>
 								</div>
 								<div className={classes.moviePlotOverview}>{movie.plot_overview}</div>
