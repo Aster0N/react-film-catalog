@@ -11,24 +11,24 @@ const Home = () => {
 	const benefits = [
 		{
 			title: 'Convenience',
-			content: 'With RFC, you can watch your favorite movies and TV shows from the comfort of your own home, without having to leave the house.',
+			content: 'You can watch your favorite movies and TV shows from the comfort of your own home, without having to leave the house.',
 		},
 		{
 			title: 'Affordability',
-			content: 'RFC offers affordable subscription plans that allow you to access a vast collection of movies and TV shows without breaking the bank.',
+			content: 'We offer affordable subscription plans that allow you to access a vast collection of movies and TV shows without breaking the bank.',
 		},
 		{
 			title: 'Accessibility',
-			content: 'RFC is easily accessible from any device with an internet connection, making it easy to watch your favorite movies and TV shows on the go.',
-		},
-		{
-			title: 'Quality',
-			content: 'RFC offers high-quality streaming, so you can enjoy your favorite movies and TV shows in crystal clear resolution.',
+			content: 'Our project is easily accessible from any device with an internet connection, making it easy to watch your favorite movies and TV shows on the go.',
 		},
 		{
 			title: 'Variety',
-			content: 'RFC offers a wide range of movies and TV shows, catering to the diverse tastes of the audience. You can find everything from the latest blockbusters to classic films and TV show.',
+			content: 'We offer a wide range of movies and TV shows, catering to the diverse tastes of the audience. You can find everything from the latest blockbusters to classic films and TV show.',
 		},
+		{
+			title: 'Quality',
+			content: 'Our online-cinema offers high-quality streaming, so you can enjoy your favorite movies and TV shows in crystal clear resolution.',
+		}
 	]
 
 	return (
