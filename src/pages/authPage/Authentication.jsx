@@ -17,12 +17,13 @@ const Authentication = () => {
 	const signUp = async ({ userEmail, userPassword }) => {
 		setIsLoading(true)
 		const response = await UserService.signUp({ userEmail, userPassword })
-		setIsLoading(false)
-
 		if (response.error) {
 			setAuthError(response.error)
+			setIsLoading(false)
 			return
 		}
+		await UserService.addNewUser(response.user)
+		setIsLoading(false)
 
 		setUser(response.user)
 		setIsAuth(true)

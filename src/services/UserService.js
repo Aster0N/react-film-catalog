@@ -1,10 +1,11 @@
-import { auth } from '@/config/firebase.js'
+import { auth, db } from '@/config/firebase'
 import { getAuthErrorDescription } from '@/helpers/getAuthErrorDescription'
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut
 } from "firebase/auth"
+import { doc, setDoc } from "firebase/firestore"
 
 export default class UserService {
 	static async signUp({ userEmail, userPassword }) {
@@ -47,5 +48,14 @@ export default class UserService {
 		}).catch((error) => {
 			console.error(error.message)
 		})
+	}
+
+	static async addNewUser(user) {
+		await setDoc(doc(db, "users", user.email), {
+			uid: user.uid,
+			email: user.email,
+			accessToken: user.accessToken
+		})
+		console.log(`user ${user.email} created`)
 	}
 }
