@@ -10,10 +10,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 	const [userPasswordConfirm, setUserPasswordConfirm] = useState('')
 	const userEmail = useInputValidation('', { checkIsEmail: true })
-	const userPassword = useInputValidation('', {
-		checkMinLength: 8,
-		checkIsPassword: true
-	})
+	const userPassword = useInputValidation('', { checkMinLength: 8, checkIsPassword: !isLogin })
 
 	const togglePassword = () => {
 		setIsPasswordVisible(!isPasswordVisible)
@@ -28,7 +25,7 @@ const AuthForm = ({ isLogin, changeForm, auth, authError, removeAuthError }) => 
 		return (!userEmail.isEmail.valid && userEmail.isDirty)
 	}
 	const showPasswordError = () => {
-		return (!userPassword.isPassword.valid && userPassword.isDirty)
+		return (!userPassword.isPassword.valid && userPassword.isDirty && !isLogin)
 	}
 	const showPasswordLengthError = () => {
 		return (!userPassword.isNormalLength.valid && userPassword.isDirty)

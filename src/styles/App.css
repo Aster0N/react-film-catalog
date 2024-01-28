@@ -97,7 +97,7 @@ main>div {
 }
 
 ._title {
-	color: var(--text-dark);
+	color: var(--dark-text);
 	font-family: "space-grotesk-regular";
 	font-size: 40px;
 	font-style: normal;
