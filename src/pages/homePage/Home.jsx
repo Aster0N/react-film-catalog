@@ -4,8 +4,10 @@ import logoPreviewImage from '@/assets/img/logo-preview.svg'
 import starLight from '@/assets/img/star-light.svg'
 import MyButton from '@/components/UI/button/MyButton.jsx'
 import pageAnimation from '@/components/pageAnimation.jsx'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import cl from './Home.module.css'
+
 
 const Home = () => {
 	const benefits = [
@@ -31,74 +33,130 @@ const Home = () => {
 		}
 	]
 
+	const animationVariants = {
+		hidden: { opacity: 0, y: 50 },
+		visible: { opacity: 1, y: 0 }
+	}
+
 	return (
 		<div className="_page">
 			<div className="_wrapper">
-				<div className={[cl.block1, "_content_block"].join(' ')}>
-					<div className={[cl.leftBlock1, "_left_block"].join(' ')}>
+				<motion.div className={[cl.block1, "_content_block"].join(' ')}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true }}
+				>
+					<motion.div className={[cl.leftBlock1, "_left_block"].join(' ')}
+						variants={animationVariants}
+						transition={{ delay: 0.4 }}
+					>
 						<img src={logoPreviewImage} alt="logo" />
-					</div>
-					<div className={[cl.rightBlock1, "_right_block"].join(' ')}>
+					</motion.div>
+					<motion.div className={[cl.rightBlock1, "_right_block"].join(' ')}
+						variants={animationVariants}
+						transition={{ delay: 0.3 }}
+					>
 						<img src={graphicSharpedLight} alt="abstract graphic" />
-					</div>
-				</div>
+					</motion.div>
+				</motion.div>
 
-				<div className={[cl.block2, "_content_block"].join(' ')}>
+				<motion.div className={[cl.block2, "_content_block"].join(' ')}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true }}
+				>
 					<div className={[cl.leftBlock2, "_left_block"].join(' ')}>
-						<p className={cl.joinText}>
+						<motion.p className={cl.joinText}
+							variants={animationVariants}
+							transition={{ delay: 0.6 }}
+						>
 							- Join us and explore a universe of captivating storytelling,
-							breathtaking visuals, and unforgettable moments.</p>
+							breathtaking visuals, and unforgettable moments.</motion.p>
 					</div>
 					<div className={[cl.rightBlock2, "_right_block"].join(' ')}>
 						<ul className={cl.preferences}>
-							<li>
+							<motion.li
+								variants={animationVariants}
+								transition={{ delay: 0.4 }}
+							>
 								<p>
 									Is an online cinema that offers a wide range of movies and TV
 									shows for its audience
 								</p>
-							</li>
-							<li>
+							</motion.li>
+							<motion.li
+								variants={animationVariants}
+								transition={{ delay: 0.5 }}
+							>
 								<p>
 									User-friendly platform that would offer a vast collection of
 									movies, catering to the diverse tastes of the audience
 								</p>
-							</li>
+							</motion.li>
 						</ul>
 						<Link to="/online-cinema" className={cl.exploreLink}>
-							<MyButton>explore</MyButton>
+							<motion.div
+								variants={animationVariants}
+								transition={{ delay: 0.6 }}
+							>
+								<MyButton>explore</MyButton>
+							</motion.div>
 						</Link>
 					</div>
-				</div>
+				</motion.div>
 
-				<div className={[cl.block3, "_content_block"].join(' ')}>
+				<motion.div className={[cl.block3, "_content_block"].join(' ')}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.3 }}
+				>
 					<div className={[cl.leftBlock3, "_left_block"].join(' ')}>
 						<h2 className="_title">The idea</h2>
 						<div className={cl.ideaRow}>
-							<p className={cl.ideaContent}>The idea of creating this platform started with a group of movie
-								enthusiasts who wanted to make cinema accessible to everyone.</p>
+							<motion.p className={cl.ideaContent}
+								variants={animationVariants}
+								transition={{ delay: 0.1 }}
+							>
+								The idea of creating this platform started with a group of movie
+								enthusiasts who wanted to make cinema accessible to everyone.</motion.p>
 							<img src={starLight} alt="star" />
 						</div>
 						<div className={cl.ideaRow}>
 							<img src={starLight} alt="star" />
-							<p className={cl.ideaContent}>Our passion for movies and commitment to providing an exceptional
-								cinematic experience is evident in every aspect of our grand project.</p>
+							<motion.p className={cl.ideaContent}
+								variants={animationVariants}
+								transition={{ delay: 0.2 }}
+							>
+								Our passion for movies and commitment to providing an exceptional
+								cinematic experience is evident in every aspect of our grand project.</motion.p>
 						</div>
 						<div className={cl.ideaRow}>
-							<p className={cl.ideaContent}>Our team of dedicated enthusiasts put their heart and soul into
-								creating an online movie theater that exceeded expectations.</p>
+							<motion.p className={cl.ideaContent}
+								variants={animationVariants}
+								transition={{ delay: 0.3 }}
+							>
+								Our team of dedicated enthusiasts put their heart and soul into
+								creating an online movie theater that exceeded expectations.</motion.p>
 							<img src={starLight} alt="star" />
 						</div>
 					</div>
 					<div className={[cl.rightBlock3, "_right_block"].join(' ')}></div>
-				</div>
+				</motion.div>
 
-				<div className={[cl.block4, "_content_block"].join(' ')}>
+				<motion.div className={[cl.block4, "_content_block"].join(' ')}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.4 }}
+				>
 					<div className={[cl.leftBlock4, "_left_block"].join(' ')}>
 						<h2 className="_title">Benefits</h2>
 						<div className={cl.benefitsLeftCol}>
-							{benefits.map(benefit =>
+							{benefits.map((benefit, ind) =>
 								(benefits.indexOf(benefit) % 2 == 0) &&
-								<div className={cl.benefit} key={benefit.title}>
+								<motion.div className={cl.benefit} key={benefit.title}
+									variants={animationVariants}
+									transition={{ delay: `0.${ind + 1}` }}
+								>
 									<div className={cl.benefitHeader}>
 										<span className={cl.benefitNumber}>0{benefits.indexOf(benefit) + 1}</span>
 										<span className={cl.benefitTitle}>{benefit.title}</span>
@@ -106,15 +164,18 @@ const Home = () => {
 									<div className={cl.benefitBody}>
 										{benefit.content}
 									</div>
-								</div>
+								</motion.div>
 							)}
 						</div>
 					</div>
 					<div className={[cl.rightBlock4, "_right_block"].join(' ')}>
 						<div className={cl.benefitsRightCol}>
-							{benefits.map(benefit =>
+							{benefits.map((benefit, ind) =>
 								(benefits.indexOf(benefit) % 2 !== 0) &&
-								<div className={cl.benefit} key={benefit.title}>
+								<motion.div className={cl.benefit} key={benefit.title}
+									variants={animationVariants}
+									transition={{ delay: `0.${ind + 1}` }}
+								>
 									<div className={cl.benefitHeader}>
 										<span className={cl.benefitNumber}>0{benefits.indexOf(benefit) + 1}</span>
 										<span className={cl.benefitTitle}>{benefit.title}</span>
@@ -122,11 +183,11 @@ const Home = () => {
 									<div className={cl.benefitBody}>
 										{benefit.content}
 									</div>
-								</div>
+								</motion.div>
 							)}
 						</div>
 					</div>
-				</div>
+				</motion.div>
 
 				<div className={[cl.block5, "_content_block"].join(' ')}>
 					<div className={[cl.leftBlock5, "_left_block"].join(' ')}>
@@ -146,9 +207,15 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className={cl.roundedGraphic}>
+				<motion.div className={cl.roundedGraphic}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true, amount: 0.3 }}
+					transition={{ delay: 0.2 }}
+					variants={animationVariants}
+				>
 					<img src={graphicRoundedLight} alt="abstract graphic" />
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	)
