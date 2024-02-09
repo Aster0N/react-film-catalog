@@ -1,10 +1,28 @@
 import AuthContext from '@/context/AuthContext'
 import { privateRoutes, publicRoutes } from '@/router/index.js'
-import { useContext } from 'react'
+import UserService from '@/services/UserService'
+import { useContext, useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 const AppRouter = () => {
-	const { isAuth } = useContext(AuthContext)
+	const { isAuth, setIsAuth, setUser } = useContext(AuthContext)
+
+	useEffect(() => {
+		const tokens = JSON.parse(localStorage.getItem('tokens'))
+		if (!tokens) {
+			console.log("logged out")
+			return
+		}
+		console.log("logged in")
+		setIsAuth(true)
+		const getUserData = async () => {
+			const user = await UserService.getUserData(tokens.accessToken)
+			return user
+		}
+		const user = getUserData()
+		setUser(user)
+		// TODO redirect user to online-cinema page
+	}, [])
 
 	return (
 		isAuth

@@ -17,12 +17,13 @@ const Authentication = () => {
 	const signUp = async ({ userEmail, userPassword }) => {
 		setIsLoading(true)
 		const response = await UserService.signUp({ userEmail, userPassword })
-		if (response.error) {
+		if (response.error || response.user == null) {
 			setAuthError(response.error)
 			setIsLoading(false)
 			return
 		}
-		await UserService.addNewUser(response.user)
+		// ! PERMISSION DENIED ERROR
+		// ! await UserService.addNewUser(response.user)
 		setIsLoading(false)
 
 		setUser(response.user)

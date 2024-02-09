@@ -54,5 +54,8 @@ export const firebaseAuthErrors = {
 	"auth/session-cookie-revoked": "The Firebase session cookie has been revoked.",
 	"auth/uid-already-exists": "The provided uid is already in use by an existing user. Each user must have a unique uid.",
 	"auth/unauthorized-continue-uri": "The domain of the continue URL is not whitelisted. Whitelist the domain in the Firebase Console.",
-	"auth/user-not-found": "There is no existing user record corresponding to the provided identifier."
+	"auth/user-not-found": "There is no existing user record corresponding to the provided identifier.",
+	'EMAIL_EXISTS': 'The email address is already in use by another account.',
+	'OPERATION_NOT_ALLOWED': 'Password sign-in is disabled for this project.',
+	'TOO_MANY_ATTEMPTS_TRY_LATER': 'We have blocked all requests from this device due to unusual activity.Try again later'
 }
