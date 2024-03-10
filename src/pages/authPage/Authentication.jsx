@@ -22,12 +22,17 @@ const Authentication = () => {
 			setIsLoading(false)
 			return
 		}
-		// ! PERMISSION DENIED ERROR
-		// ! await UserService.addNewUser(response.user)
-		setIsLoading(false)
 
 		setUser(response.user)
 		setIsAuth(true)
+		try {
+			await UserService.addNewUser(response.user)
+		} catch (err) {
+			setAuthError(`Add user error: ${err.message}`)
+			return
+		} finally {
+			setIsLoading(false)
+		}
 		navigate('/online-cinema')
 	}
 
