@@ -32,7 +32,6 @@ export default class CinemaService {
 		const moviesCollectionRef = collection(db, "movies")
 		try {
 			const previewList = query(moviesCollectionRef, limit(docsLimit))
-			// ! permission denied here
 			const data = await getDocs(previewList)
 
 			const filteredData = data.docs.map(doc => ({

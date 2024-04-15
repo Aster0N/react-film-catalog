@@ -35,7 +35,7 @@ export default class UserService {
 				refreshToken: response.data.refreshToken
 			}))
 		} catch (err) {
-			// ? some errors not in firebaseAUthErrors
+			// ! some errors not in firebaseAUthErrors
 			signUpResponse.error = getAuthErrorDescription(err.response.data.error.message)
 		}
 		console.log('signed up', signUpResponse)
@@ -69,7 +69,7 @@ export default class UserService {
 	}
 
 	static async addNewUser(user) {
-		await setDoc(doc(db, "users", user.email), {
+		await setDoc(doc(db, "users", user.localId), {
 			email: user.email,
 			uid: user.localId
 		})

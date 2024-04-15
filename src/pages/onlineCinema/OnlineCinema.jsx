@@ -12,7 +12,7 @@ const OnlineCinema = () => {
 	const [movieListPreview, setMovieListPreview] = useState([])
 	const [hideShowMoreBtn, setHideShowMoreBtn] = useState(false)
 	const [expansionsCount, setExpansionsCount] = useState(0)
-	const { isLoading, setIsLoading } = useContext(AuthContext)
+	const { isLoading, setIsLoading, user } = useContext(AuthContext)
 	const listExpansionsLimit = 5
 
 	const getListPreview = async () => {
@@ -43,6 +43,7 @@ const OnlineCinema = () => {
 
 	useEffect(() => {
 		getListPreview()
+		console.log(`USER: ${user}`)
 	}, [])
 
 	return (
