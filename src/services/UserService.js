@@ -35,7 +35,7 @@ export default class UserService {
 				refreshToken: response.data.refreshToken
 			}))
 		} catch (err) {
-			// ! some errors not in firebaseAUthErrors
+			// ! add some errors into firebaseAUthErrors
 			signUpResponse.error = getAuthErrorDescription(err.response.data.error.message)
 		}
 		console.log('signed up', signUpResponse)
@@ -88,8 +88,37 @@ export default class UserService {
 			let userData = await axios.post(getUserURL, { idToken })
 			response.user = userData.data.users[0]
 		} catch (err) {
-			response.error = `Get user data error: ${(err.response?.data.error.message || err.message)}`
+			response.error = err.response?.data.error.message || err.message
 		}
+
+		return response
+	}
+
+	static async refreshToken(refToken) {
+		const response = {
+			tokenData: null,
+			error: '',
+		}
+
+		const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
+		const refreshTokenURL = `https://securetoken.googleapis.com/v1/token?key=${API_KEY}`
+
+		try {
+			let tokenData = await axios.post(refreshTokenURL, {
+				grant_type: 'refresh_token',
+				refresh_token: refToken
+			}, {
+				headers: { 'Content-Type': 'application/json' }
+			})
+			response.tokenData = tokenData.data
+		} catch (err) {
+			response.error = err.response?.data.error.message || err.message
+		}
+
+		localStorage.setItem('tokens', JSON.stringify({
+			accessToken: response.tokenData.id_token,
+			refreshToken: response.tokenData.refresh_token
+		}))
 
 		return response
 	}

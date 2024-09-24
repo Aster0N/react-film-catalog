@@ -4,7 +4,7 @@ import AuthForm from '@/components/authForm/AuthForm.jsx'
 import pageAnimation from '@/components/pageAnimation.jsx'
 import AuthContext from '@/context/AuthContext.jsx'
 import UserService from '@/services/UserService.js'
-import { useContext, useState } from 'react'
+import { useContext, useState, user } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import classes from './Authentication.module.css'
 
@@ -33,6 +33,7 @@ const Authentication = () => {
 		} finally {
 			setIsLoading(false)
 		}
+		console.log(`AUTH user: ${user}`)
 		navigate('/online-cinema')
 	}
 

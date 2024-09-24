@@ -8,10 +8,18 @@ const AppRouter = () => {
 	const { isAuth, setIsAuth, setUser } = useContext(AuthContext)
 	const navigate = useNavigate()
 
-	const setUserData = async (tokens) => {
-		const response = await UserService.getUserData(tokens.accessToken)
-		// ! User doesn't sets properly
-		setUser(response.user)
+	const setUserInfo = async (tokens) => {
+		let userResponse = await UserService.getUserData(tokens.accessToken)
+
+		if (userResponse.error == "INVALID_ID_TOKEN" || userResponse.user == null) {
+			const refreshTokenResponse = await UserService.refreshToken(tokens.refreshToken)
+			if (!refreshTokenResponse.error) {
+				userResponse = await UserService.getUserData(tokens.accessToken)
+			}
+		}
+
+		console.log(userResponse)
+		setUser(userResponse.user)
 	}
 
 	useEffect(() => {
@@ -23,7 +31,7 @@ const AppRouter = () => {
 		console.log("logged in")
 		setIsAuth(true)
 
-		setUserData(tokens)
+		setUserInfo(tokens)
 
 		navigate("/online-cinema")
 	}, [])
