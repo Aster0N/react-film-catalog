@@ -51,6 +51,13 @@ export default class UserService {
 		await signInWithEmailAndPassword(auth, userEmail, userPassword)
 			.then((userCredential) => {
 				response.user = userCredential.user
+
+				if (!localStorage.getItem("tokens")) {
+					localStorage.setItem('tokens', JSON.stringify({
+						accessToken: userCredential._tokenResponse.idToken,
+						refreshToken: userCredential._tokenResponse.refreshToken
+					}))
+				}
 			})
 			.catch((error) => {
 				response.error = getAuthErrorDescription(error.code)
